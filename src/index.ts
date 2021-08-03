@@ -3,6 +3,7 @@ import { RewriteFrames } from "@sentry/integrations";
 import { validateEnv } from "./utils/validateEnv";
 import { logHandler } from "./utils/logHandler";
 import { twitterMonitor } from "./twitter-monitor/twitterMonitor";
+import { wakatimeMonitor } from "./wakatime-monitor/wakatimeMonitor";
 
 const initialise = async () => {
   logHandler.log("debug", "Validating environment variables.");
@@ -26,6 +27,9 @@ const initialise = async () => {
 
   logHandler.log("debug", "Loading twitter monitor.");
   await twitterMonitor(CONFIG);
+
+  logHandler.log("debug", "Loading Wakatime monitor");
+  await wakatimeMonitor(CONFIG);
 };
 
 initialise();

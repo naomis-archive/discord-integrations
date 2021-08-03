@@ -8,6 +8,9 @@ export const validateEnv = async (): Promise<GlobalConfigInt | string> => {
   if (!process.env.SENTRY_DSN) {
     return "Missing Sentry DSN.";
   }
+  if (!process.env.OWNER_DISCORD_ID) {
+    return "Missing Owner's Discord ID.";
+  }
   if (!process.env.TWITTER_DISCORD_WEBHOOK_URL) {
     return "Missing the Discord Webhook URL for Twitter notifications.";
   }
@@ -20,14 +23,27 @@ export const validateEnv = async (): Promise<GlobalConfigInt | string> => {
   if (!process.env.TWITTER_NOTIFICATION_ROLE) {
     return "Missing the ID for your Twitter notifications role.";
   }
+  if (!process.env.WAKATIME_API_KEY) {
+    return "Missing the Wakatime API key.";
+  }
+  if (!process.env.WAKATIME_DISCORD_WEBHOOK_URL) {
+    return "Missing the Discord webhook URL for Wakatime notifications";
+  }
+  if (!process.env.WAKATIME_NOTIFICATION_ROLE) {
+    return "Missing the ID for your Wakatime notifications role.";
+  }
 
   const CONFIG: GlobalConfigInt = {
     sentryDsn: process.env.SENTRY_DSN,
+    ownerId: process.env.OWNER_DISCORD_ID,
     twitterDiscordWebhook: process.env.TWITTER_DISCORD_WEBHOOK_URL,
     twitterId: process.env.TWITTER_USER_ID,
     twitterToken: process.env.TWITTER_BEARER_TOKEN,
     twitterNotificationRoleId: process.env.TWITTER_NOTIFICATION_ROLE,
     lastTweet: "",
+    wakatimeApiKey: process.env.WAKATIME_API_KEY,
+    wakatimeDiscordWebhook: process.env.WAKATIME_DISCORD_WEBHOOK_URL,
+    wakatimeNotificationRoleId: process.env.WAKATIME_NOTIFICATION_ROLE,
   };
 
   return CONFIG;

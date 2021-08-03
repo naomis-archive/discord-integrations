@@ -6,7 +6,7 @@ import { testTwitterWebhook } from "./modules/testTwitterWebhook";
 export const twitterMonitor = async (
   CONFIG: GlobalConfigInt
 ): Promise<void> => {
-  logHandler.log("debug", "Verifying webhook.");
+  logHandler.log("debug", "Verifying Twitter webhook.");
 
   const webhookValid = await testTwitterWebhook(CONFIG);
 
@@ -15,9 +15,9 @@ export const twitterMonitor = async (
     return;
   }
 
-  logHandler.log("debug", "Starting first monitor run...");
+  logHandler.log("debug", "Starting first Twitter monitor run...");
   await monitorTweets(CONFIG);
 
-  logHandler.log("debug", "Setting monitor on interval of 2 minutes.");
+  logHandler.log("debug", "Setting Twitter monitor on interval of 2 minutes.");
   setInterval(async () => await monitorTweets(CONFIG), 120000);
 };
