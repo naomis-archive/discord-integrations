@@ -2,6 +2,7 @@ export interface GlobalConfigInt {
   // global values
   sentryDsn: string;
   ownerId: string;
+  environment: "development" | "production";
   // twitter monitor
   twitterToken: string;
   twitterId: string;

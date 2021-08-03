@@ -4,6 +4,7 @@ import { validateEnv } from "./utils/validateEnv";
 import { logHandler } from "./utils/logHandler";
 import { twitterMonitor } from "./twitter-monitor/twitterMonitor";
 import { wakatimeMonitor } from "./wakatime-monitor/wakatimeMonitor";
+import { server } from "./server/server";
 
 const initialise = async () => {
   logHandler.log("debug", "Validating environment variables.");
@@ -24,6 +25,9 @@ const initialise = async () => {
       }),
     ],
   });
+
+  logHandler.log("debug", "Spinning up webserver");
+  await server(CONFIG);
 
   logHandler.log("debug", "Loading twitter monitor.");
   await twitterMonitor(CONFIG);
