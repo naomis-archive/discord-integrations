@@ -1,18 +1,28 @@
-# Project Name
+# Discord Integrations
 
-Project Description
+This is a collection of various helpful Discord integrations I have written.
 
-![](https://img.shields.io/codeclimate/maintainability/nhcarrigan/new-repo-template)
-![](https://img.shields.io/codeclimate/issues/nhcarrigan/new-repo-template)
-![](https://img.shields.io/codeclimate/tech-debt/nhcarrigan/new-repo-template)
-![](https://img.shields.io/lgtm/alerts/github/nhcarrigan/new-repo-template)
-![](https://img.shields.io/lgtm/grade/javascript/github/nhcarrigan/new-repo-template)
+![](https://img.shields.io/codeclimate/maintainability/nhcarrigan/discord-integrations)
+![](https://img.shields.io/codeclimate/issues/nhcarrigan/discord-integrations)
+![](https://img.shields.io/codeclimate/tech-debt/nhcarrigan/discord-integrations)
+![](https://img.shields.io/lgtm/alerts/github/nhcarrigan/discord-integrations)
+![](https://img.shields.io/lgtm/grade/javascript/github/nhcarrigan/discord-integrations)
 
 ## Live Version
 
-This page is not yet deployed.
+These integrations can be viewed in my [Discord Server](https://chat.nhcarrigan.com).
 
-<!--This page is currently deployed. [View the live website.]()-->
+## Integrations
+
+Here is a brief description of each integration.
+
+### Twitter Monitor
+
+This is a monitor which checks the Twitter API for recent tweets and sends them to a Discord webhook as an embed.
+
+### Wakatime Monitor
+
+This is a monitor which checks the Wakatime API daily to get the previous day's stats, and compiles them into an embed to post to Discord.
 
 ## Feedback and Bugs
 

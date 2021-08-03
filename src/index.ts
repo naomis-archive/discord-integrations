@@ -1,9 +1,19 @@
 import * as Sentry from "@sentry/node";
 import { RewriteFrames } from "@sentry/integrations";
+import { validateEnv } from "./utils/validateEnv";
+import { logHandler } from "./utils/logHandler";
+import { twitterMonitor } from "./twitter-monitor/twitterMonitor";
 
 const initialise = async () => {
-  console.log("I'm alive~!");
+  logHandler.log("debug", "Validating environment variables.");
+  const CONFIG = await validateEnv();
 
+  if (typeof CONFIG === "string") {
+    logHandler.log("error", CONFIG);
+    return;
+  }
+
+  logHandler.log("debug", "Initialising Sentry monitor");
   Sentry.init({
     dsn: process.env.SENTRY_DSN,
     tracesSampleRate: 1.0,
@@ -13,6 +23,9 @@ const initialise = async () => {
       }),
     ],
   });
+
+  logHandler.log("debug", "Loading twitter monitor.");
+  await twitterMonitor(CONFIG);
 };
 
 initialise();
