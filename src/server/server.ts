@@ -1,0 +1,50 @@
+import { GlobalConfigInt } from "../interfaces/GlobalConfigInt";
+import express from "express";
+import { readFile } from "fs/promises";
+import http from "http";
+import https from "https";
+import { logHandler } from "../utils/logHandler";
+import path from "path";
+
+export const server = async (CONFIG: GlobalConfigInt): Promise<void> => {
+  const app = express();
+
+  // mount your middleware and routes here
+
+  app.use("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "./views/index.html"));
+  });
+
+  const httpServer = http.createServer(app);
+
+  httpServer.listen(1080, () => {
+    logHandler.log("http", "http server listening on port 80");
+  });
+
+  if (CONFIG.environment === "production") {
+    const privateKey = await readFile(
+      "/etc/letsencrypt/live/discord-integrations.nhcarrigan.com/privkey.pem",
+      "utf8"
+    );
+    const certificate = await readFile(
+      "/etc/letsencrypt/live/discord-integrations.nhcarrigan.com/cert.pem",
+      "utf8"
+    );
+    const ca = await readFile(
+      "/etc/letsencrypt/live/discord-integrations.nhcarrigan.com/chain.pem",
+      "utf8"
+    );
+
+    const credentials = {
+      key: privateKey,
+      cert: certificate,
+      ca: ca,
+    };
+
+    const httpsServer = https.createServer(credentials, app);
+
+    httpsServer.listen(1443, () => {
+      logHandler.log("http", "https server listening on port 443");
+    });
+  }
+};
