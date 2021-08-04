@@ -1,4 +1,3 @@
-import cron from "node-cron";
 import { GlobalConfigInt } from "../interfaces/GlobalConfigInt";
 import { logHandler } from "../utils/logHandler";
 import { handleWakatimeData } from "./modules/handleWakatimeData";
@@ -18,19 +17,17 @@ export const wakatimeMonitor = async (
 
   logHandler.log("debug", "CRON job scheduled!");
 
-  const monitor = cron.schedule(
-    "0 8 * * *",
-    () => {
-      async () => {
-        logHandler.log("debug", "Running CRON job");
-        await handleWakatimeData(CONFIG);
-      };
-    },
-    {
-      scheduled: true,
-      timezone: "America/Los_Angeles",
-    }
-  );
+  setInterval(async () => {
+    logHandler.log("debug", "Running Wakatime Monitor");
+    const currentHour = new Date(Date.now()).getHours();
 
-  monitor.start();
+    if (currentHour === 9) {
+      await handleWakatimeData(CONFIG);
+    } else {
+      logHandler.log(
+        "debug",
+        `Skipping Wakatime run as ${currentHour} is not 9`
+      );
+    }
+  }, 3600000);
 };
