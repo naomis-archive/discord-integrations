@@ -1,6 +1,6 @@
 {
   "name": "discord-integrations",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A server to manage multiple Discord integrations.",
   "main": "./prod/index.js",
   "scripts": {
