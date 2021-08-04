@@ -20,6 +20,7 @@ export const uptimeMonitor = async (
         "A request to the Uptime endpoint was made with an invalid secret."
       );
       res.status(403).send("Invalid Secret");
+      return;
     }
 
     logHandler.log(

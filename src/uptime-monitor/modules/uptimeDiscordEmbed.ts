@@ -2,6 +2,7 @@ import { DiscordEmbedInt } from "../../interfaces/DiscordEmbedInt";
 import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
 import { errorHandler } from "../../utils/errorHandler";
 import { UptimeDataInt } from "../interfaces/UptimeDataInt";
+import { parseUptimeSeconds } from "./parseUptimeSeconds";
 
 export const uptimeDiscordEmbed = (
   CONFIG: GlobalConfigInt,
@@ -28,6 +29,10 @@ export const uptimeDiscordEmbed = (
     if (data.alertType === "2") {
       embed.title = data.monitorFriendlyName + " is UP!";
       embed.color = 0x00ff00;
+      embed.fields.push({
+        name: "Outage Duration",
+        value: parseUptimeSeconds(data.alertDuration),
+      });
     }
     if (data.alertType === "3") {
       embed.title = "SSL Alert on " + data.monitorFriendlyName;
