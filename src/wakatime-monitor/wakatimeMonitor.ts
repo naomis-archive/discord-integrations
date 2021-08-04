@@ -18,7 +18,7 @@ export const wakatimeMonitor = async (
 
   logHandler.log("debug", "CRON job scheduled!");
 
-  cron.schedule(
+  const monitor = cron.schedule(
     "0 8 * * *",
     () => {
       async () => {
@@ -31,4 +31,6 @@ export const wakatimeMonitor = async (
       timezone: "America/Los_Angeles",
     }
   );
+
+  monitor.start();
 };
