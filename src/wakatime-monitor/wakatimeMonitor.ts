@@ -21,12 +21,12 @@ export const wakatimeMonitor = async (
     logHandler.log("debug", "Running Wakatime Monitor");
     const currentHour = new Date(Date.now()).getHours();
 
-    if (currentHour === 8) {
+    if (currentHour === 9) {
       await handleWakatimeData(CONFIG);
     } else {
       logHandler.log(
         "debug",
-        `Skipping Wakatime run as ${currentHour} is not 8`
+        `Skipping Wakatime run as ${currentHour} is not 9`
       );
     }
   }, 3600000);
