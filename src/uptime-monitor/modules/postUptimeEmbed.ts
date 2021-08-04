@@ -3,18 +3,18 @@ import { DiscordEmbedInt } from "../../interfaces/DiscordEmbedInt";
 import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
 import { errorHandler } from "../../utils/errorHandler";
 
-export const postWakatimeEmbed = async (
+export const postUptimeEmbed = async (
   CONFIG: GlobalConfigInt,
   embed: DiscordEmbedInt
 ): Promise<void> => {
   try {
-    await fetch(CONFIG.wakatimeDiscordWebhook, {
+    await fetch(CONFIG.uptimeDiscordWebhook, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        content: `<@&${CONFIG.wakatimeNotificationRoleId}>, here is <@!${CONFIG.ownerId}>'s latest coding stats update.`,
+        content: `<@&${CONFIG.uptimeNotificationRoleId}>, one of <@!${CONFIG.ownerId}>'s applications has changed status.`,
         embeds: [embed],
       }),
     });

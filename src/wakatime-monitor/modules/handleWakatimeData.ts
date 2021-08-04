@@ -1,6 +1,5 @@
 import { noWakatimeApiData } from "../data/noWakatimeApiData";
 import { noWakatimeYesterday } from "../data/noWakatimeYesterday";
-import { processingEmbed } from "../data/processingEmbed";
 import { errorHandler } from "../../utils/errorHandler";
 import { postWakatimeEmbed } from "./postWakatimeEmbed";
 import { getWakatimeData } from "./getWakatimeData";
@@ -11,8 +10,6 @@ export const handleWakatimeData = async (
   CONFIG: GlobalConfigInt
 ): Promise<void> => {
   try {
-    await postWakatimeEmbed(CONFIG, processingEmbed);
-
     const rawData = await getWakatimeData(CONFIG);
 
     if (!rawData) {

@@ -38,6 +38,15 @@ export const validateEnv = async (): Promise<GlobalConfigInt | string> => {
   if (!process.env.WAKATIME_NOTIFICATION_ROLE) {
     return "Missing the ID for your Wakatime notifications role.";
   }
+  if (!process.env.UPTIME_SECRET) {
+    return "Missing secret parameter for Uptime endpoint.";
+  }
+  if (!process.env.UPTIME_DISCORD_WEBHOOK_URL) {
+    return "Missing the Discord webhook URL for Uptime notifications.";
+  }
+  if (!process.env.UPTIME_NOTIFICATION_ROLE) {
+    return "Missing the ID for your Uptime notifications role.";
+  }
 
   const CONFIG: GlobalConfigInt = {
     sentryDsn: process.env.SENTRY_DSN,
@@ -51,6 +60,9 @@ export const validateEnv = async (): Promise<GlobalConfigInt | string> => {
     wakatimeApiKey: process.env.WAKATIME_API_KEY,
     wakatimeDiscordWebhook: process.env.WAKATIME_DISCORD_WEBHOOK_URL,
     wakatimeNotificationRoleId: process.env.WAKATIME_NOTIFICATION_ROLE,
+    uptimeSecret: process.env.UPTIME_SECRET,
+    uptimeDiscordWebhook: process.env.UPTIME_DISCORD_WEBHOOK_URL,
+    uptimeNotificationRoleId: process.env.UPTIME_NOTIFICATION_ROLE,
   };
 
   return CONFIG;

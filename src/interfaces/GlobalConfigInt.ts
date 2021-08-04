@@ -13,4 +13,8 @@ export interface GlobalConfigInt {
   wakatimeApiKey: string;
   wakatimeNotificationRoleId: string;
   wakatimeDiscordWebhook: string;
+  // uptime monitor
+  uptimeSecret: string;
+  uptimeDiscordWebhook: string;
+  uptimeNotificationRoleId: string;
 }

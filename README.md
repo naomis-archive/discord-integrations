@@ -24,6 +24,10 @@ This is a monitor which checks the Twitter API for recent tweets and sends them 
 
 This is a monitor which checks the Wakatime API daily to get the previous day's stats, and compiles them into an embed to post to Discord.
 
+### Uptime Monitor
+
+This is a custom middleware which recieves POST events from Uptime Robot, parses the data into an embed, and passes it to a Discord webhook.
+
 ## Feedback and Bugs
 
 If you have feedback or a bug report, please feel free to open a GitHub issue!

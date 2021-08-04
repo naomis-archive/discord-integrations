@@ -5,12 +5,21 @@ import http from "http";
 import https from "https";
 import { logHandler } from "../utils/logHandler";
 import path from "path";
+import { uptimeMonitor } from "../uptime-monitor/uptimeMonitor";
 
 export const server = async (CONFIG: GlobalConfigInt): Promise<void> => {
   const app = express();
 
-  // mount your middleware and routes here
+  app.use(express.json());
 
+  // uptime monitor middleware
+  logHandler.log("http", "uptime monitor mounted");
+  app.post(
+    "/uptime",
+    async (req, res) => await uptimeMonitor(CONFIG, req, res)
+  );
+
+  // root url
   app.use("/", (req, res) => {
     res.sendFile(path.join(__dirname, "./views/index.html"));
   });
