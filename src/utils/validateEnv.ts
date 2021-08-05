@@ -47,6 +47,15 @@ export const validateEnv = async (): Promise<GlobalConfigInt | string> => {
   if (!process.env.UPTIME_NOTIFICATION_ROLE) {
     return "Missing the ID for your Uptime notifications role.";
   }
+  if (!process.env.SENTRY_SECRET) {
+    return "Missing secret parameter for Sentry endpoint.";
+  }
+  if (!process.env.SENTRY_DISCORD_WEBHOOK_URL) {
+    return "Missing the Discord webhook URL for Sentry notifications.";
+  }
+  if (!process.env.SENTRY_NOTIFICATION_ROLE) {
+    return "Missing the ID for your Sentry notifications role.";
+  }
 
   const CONFIG: GlobalConfigInt = {
     sentryDsn: process.env.SENTRY_DSN,
@@ -63,6 +72,9 @@ export const validateEnv = async (): Promise<GlobalConfigInt | string> => {
     uptimeSecret: process.env.UPTIME_SECRET,
     uptimeDiscordWebhook: process.env.UPTIME_DISCORD_WEBHOOK_URL,
     uptimeNotificationRoleId: process.env.UPTIME_NOTIFICATION_ROLE,
+    sentrySecret: process.env.SENTRY_SECRET,
+    sentryDiscordWebhook: process.env.SENTRY_DISCORD_WEBHOOK_URL,
+    sentryNotificationRoleId: process.env.SENTRY_NOTIFICATION_ROLE,
   };
 
   return CONFIG;

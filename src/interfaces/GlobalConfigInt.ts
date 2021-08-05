@@ -17,4 +17,8 @@ export interface GlobalConfigInt {
   uptimeSecret: string;
   uptimeDiscordWebhook: string;
   uptimeNotificationRoleId: string;
+  // sentry monitor
+  sentrySecret: string;
+  sentryDiscordWebhook: string;
+  sentryNotificationRoleId: string;
 }
