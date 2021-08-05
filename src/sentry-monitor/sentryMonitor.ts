@@ -6,7 +6,7 @@ import { SentryDataInt } from "./interfaces/SentryDataInt";
 import { postSentryEmbed } from "./modules/postSentryEmbed";
 import { sentryDiscordEmbed } from "./modules/sentryDiscordEmbed";
 
-export const uptimeMonitor = async (
+export const sentryMonitor = async (
   CONFIG: GlobalConfigInt,
   req: Request,
   res: Response
@@ -14,7 +14,7 @@ export const uptimeMonitor = async (
   try {
     const secret = req.query.secret;
 
-    if (secret !== CONFIG.uptimeSecret) {
+    if (secret !== CONFIG.sentrySecret) {
       logHandler.log(
         "info",
         "A request to the Uptime endpoint was made with an invalid secret."
