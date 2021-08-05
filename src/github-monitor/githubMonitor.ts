@@ -64,6 +64,7 @@ export const githubMonitor = async (
         break;
       default:
         logHandler.log("info", "But it was not a supported Github event...");
+        logHandler.log("info", headers["x-github-event"]);
     }
 
     if (!embed) {
