@@ -59,6 +59,15 @@ export const validateEnv = async (): Promise<GlobalConfigInt | string> => {
   if (!process.env.SENTRY_NOTIFICATION_ROLE) {
     return "Missing the ID for your Sentry notifications role.";
   }
+  if (!process.env.GITHUB_SECRET) {
+    return "Missing secret parameter for GitHub endpoint.";
+  }
+  if (!process.env.GITHUB_DISCORD_WEBHOOK_URL) {
+    return "Missing the Discord webhook URL for GitHub notifications.";
+  }
+  if (!process.env.GITHUB_NOTIFICATION_ROLE) {
+    return "Missing the ID for your GitHub notifications role.";
+  }
 
   const CONFIG: GlobalConfigInt = {
     sentryDsn: process.env.SENTRY_DSN,
@@ -79,6 +88,9 @@ export const validateEnv = async (): Promise<GlobalConfigInt | string> => {
     sentrySecret: process.env.SENTRY_SECRET,
     sentryDiscordWebhook: process.env.SENTRY_DISCORD_WEBHOOK_URL,
     sentryNotificationRoleId: process.env.SENTRY_NOTIFICATION_ROLE,
+    githubSecret: process.env.GITHUB_SECRET,
+    githubDiscordWebhook: process.env.GITHUB_DISCORD_WEBHOOK_URL,
+    githubNotificationRoleId: process.env.GITHUB_NOTIFICATION_ROLE,
   };
 
   return CONFIG;
