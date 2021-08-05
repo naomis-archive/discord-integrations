@@ -17,7 +17,7 @@ export const sentryMonitor = async (
     if (secret !== CONFIG.sentrySecret) {
       logHandler.log(
         "info",
-        "A request to the Uptime endpoint was made with an invalid secret."
+        "A request to the Sentry endpoint was made with an invalid secret."
       );
       res.status(403).send("Invalid Secret");
       return;
@@ -25,7 +25,7 @@ export const sentryMonitor = async (
 
     logHandler.log(
       "info",
-      "A valid request to the Uptime endpoint was received!"
+      "A valid request to the Sentry endpoint was received!"
     );
     const data: SentryDataInt = req.body;
 
@@ -40,6 +40,6 @@ export const sentryMonitor = async (
 
     res.status(200).send("Event received and logged!");
   } catch (err) {
-    errorHandler(CONFIG, "uptime monitor", err);
+    errorHandler(CONFIG, "sentry monitor", err);
   }
 };
