@@ -19,6 +19,6 @@ export const postUptimeEmbed = async (
       }),
     });
   } catch (err) {
-    errorHandler("post embed", err);
+    errorHandler(CONFIG, "post embed", err);
   }
 };

@@ -21,7 +21,7 @@ export const sentryDiscordEmbed = (
     ];
     return embed;
   } catch (err) {
-    errorHandler("sentry discord embed", err);
+    errorHandler(CONFIG, "sentry discord embed", err);
     return null;
   }
 };

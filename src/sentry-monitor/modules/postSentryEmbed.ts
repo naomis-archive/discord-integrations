@@ -19,6 +19,6 @@ export const postSentryEmbed = async (
       }),
     });
   } catch (err) {
-    errorHandler("post sentry embed", err);
+    errorHandler(CONFIG, "post sentry embed", err);
   }
 };

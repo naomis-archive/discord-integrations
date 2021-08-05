@@ -1,8 +1,10 @@
 import { DiscordEmbedInt } from "../../interfaces/DiscordEmbedInt";
 import { WakatimeDataInt } from "../interfaces/WakatimeDataInt";
 import { errorHandler } from "../../utils/errorHandler";
+import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
 
 export const parseWakatimeData = async (
+  CONFIG: GlobalConfigInt,
   data: WakatimeDataInt
 ): Promise<DiscordEmbedInt | null> => {
   try {
@@ -57,7 +59,7 @@ export const parseWakatimeData = async (
 
     return embed;
   } catch (err) {
-    errorHandler("parse Wakatime Data", err);
+    errorHandler(CONFIG, "parse Wakatime Data", err);
     return null;
   }
 };

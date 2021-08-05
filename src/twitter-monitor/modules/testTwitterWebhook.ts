@@ -25,7 +25,7 @@ export const testTwitterWebhook = async (
     }
     return true;
   } catch (err) {
-    errorHandler("webhook test module", err);
+    errorHandler(CONFIG, "webhook test module", err);
     return false;
   }
 };

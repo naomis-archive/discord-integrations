@@ -17,7 +17,7 @@ export const handleWakatimeData = async (
       return;
     }
 
-    const parsedData = await parseWakatimeData(rawData);
+    const parsedData = await parseWakatimeData(CONFIG, rawData);
 
     if (!parsedData) {
       await postWakatimeEmbed(CONFIG, noWakatimeYesterday);
@@ -26,6 +26,6 @@ export const handleWakatimeData = async (
 
     await postWakatimeEmbed(CONFIG, parsedData);
   } catch (err) {
-    errorHandler("data handler", err);
+    errorHandler(CONFIG, "data handler", err);
   }
 };

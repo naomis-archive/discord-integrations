@@ -40,6 +40,6 @@ export const sentryMonitor = async (
 
     res.status(200).send("Event received and logged!");
   } catch (err) {
-    errorHandler("uptime monitor", err);
+    errorHandler(CONFIG, "uptime monitor", err);
   }
 };

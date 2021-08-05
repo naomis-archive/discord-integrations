@@ -8,15 +8,15 @@ import { GlobalConfigInt } from "../../../interfaces/GlobalConfigInt";
  * Will set the necessary fields for the data
  * handling, and will limit tweets based on latest
  * seen tweet (with a max of 100).
- * @param {ConfigInt} config The environment configuration object.
+ * @param {ConfigInt} CONFIG The environment CONFIGuration object.
  * @returns {Promise<TweetListInt>} A promise that resolves to an array of tweet data.
  */
 export const fetchTweets = async (
-  config: GlobalConfigInt
+  CONFIG: GlobalConfigInt
 ): Promise<TweetListInt | null> => {
   try {
     const req = new URL(
-      `https://api.twitter.com/2/users/${config.twitterId}/tweets`
+      `https://api.twitter.com/2/users/${CONFIG.twitterId}/tweets`
     );
 
     req.searchParams.set("max_results", "100");
@@ -36,20 +36,20 @@ export const fetchTweets = async (
         "referenced_tweets.id.author_id",
       ].join(",")
     );
-    if (config.lastTweet) {
-      req.searchParams.set("since_id", config.lastTweet);
+    if (CONFIG.lastTweet) {
+      req.searchParams.set("since_id", CONFIG.lastTweet);
     }
 
     const raw = await fetch(req.toString(), {
       headers: {
-        Authorization: `Bearer ${config.twitterToken}`,
+        Authorization: `Bearer ${CONFIG.twitterToken}`,
       },
     });
 
     const data = await raw.json();
     return data;
   } catch (err) {
-    errorHandler("fetch tweets module", err);
+    errorHandler(CONFIG, "fetch tweets module", err);
     return null;
   }
 };

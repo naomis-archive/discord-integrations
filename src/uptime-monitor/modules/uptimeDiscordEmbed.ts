@@ -31,7 +31,7 @@ export const uptimeDiscordEmbed = (
       embed.color = 0x00ff00;
       embed.fields.push({
         name: "Outage Duration",
-        value: parseUptimeSeconds(data.alertDuration),
+        value: parseUptimeSeconds(CONFIG, data.alertDuration),
       });
     }
     if (data.alertType === "3") {
@@ -47,7 +47,7 @@ export const uptimeDiscordEmbed = (
 
     return embed;
   } catch (err) {
-    errorHandler("uptime discord embed", err);
+    errorHandler(CONFIG, "uptime discord embed", err);
     return null;
   }
 };

@@ -20,7 +20,7 @@ export const getWakatimeData = async (
 
     return data;
   } catch (err) {
-    errorHandler("get Wakatime Data", err);
+    errorHandler(CONFIG, "get Wakatime Data", err);
     return null;
   }
 };
