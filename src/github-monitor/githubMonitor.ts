@@ -68,6 +68,7 @@ export const githubMonitor = async (
     }
 
     if (!embed) {
+      logHandler.log("info", "But no embed was generated...");
       res.status(200).send("Bad request");
       return;
     }
