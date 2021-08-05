@@ -18,21 +18,23 @@ export const generatePullEmbed = (
       color: 0x8b4283,
       description: `A pull request was ${data.action}`,
       author: {
-        name: data.sender.login,
-        icon_url: data.sender.avatar_url,
+        name: data.sender.login || "unknown",
+        icon_url:
+          data.sender.avatar_url ||
+          "https://cdn.nhcarrigan.com/content/profile.jpg",
       },
       fields: [
         {
           name: "Repository",
-          value: data.repository.name,
+          value: data.repository.name || "unknown",
         },
         {
           name: "Title",
-          value: data.pull_request.title,
+          value: data.pull_request.title || "unknown",
         },
         {
           name: "Description",
-          value: customSubstring(data.pull_request.body, 1000),
+          value: customSubstring(data.pull_request.body || "unknown", 1000),
         },
       ],
       footer: {

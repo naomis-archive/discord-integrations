@@ -14,17 +14,19 @@ export const generateCommentInt = (
       color: 0x8b4283,
       description: `A comment was ${data.action}`,
       author: {
-        name: data.sender.login,
-        icon_url: data.sender.avatar_url,
+        name: data.sender.login || "unknown",
+        icon_url:
+          data.sender.avatar_url ||
+          "https://cdn.nhcarrigan.com/content/profile.jpg",
       },
       fields: [
         {
           name: "Repository",
-          value: data.repository.name,
+          value: data.repository.name || "unknown",
         },
         {
           name: "Comment",
-          value: data.comment.body,
+          value: data.comment.body || "unknown",
         },
       ],
       footer: {

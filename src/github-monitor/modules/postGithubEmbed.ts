@@ -8,7 +8,6 @@ export const postGithubEmbed = async (
   embed: DiscordEmbedInt
 ): Promise<void> => {
   try {
-    console.table(embed);
     await fetch(CONFIG.githubDiscordWebhook, {
       method: "POST",
       headers: {

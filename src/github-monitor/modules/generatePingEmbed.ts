@@ -14,13 +14,15 @@ export const generatePingEmbed = (
       color: 0x8b4283,
       description: `I will now watch for activity on the \`${data.repository.name}\` project.`,
       author: {
-        name: data.sender.login,
-        icon_url: data.sender.avatar_url,
+        name: data.sender.login || "unknown",
+        icon_url:
+          data.sender.avatar_url ||
+          "https://cdn.nhcarrigan.com/content/profile.jpg",
       },
       fields: [
         {
           name: "Owner",
-          value: data.repository.owner.name,
+          value: data.repository.owner.login || "Unknown.",
         },
         {
           name: "Description",

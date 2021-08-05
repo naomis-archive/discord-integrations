@@ -16,13 +16,15 @@ export const generateStarEmbed = (
         data.action === "created" ? "gained" : "lost"
       } a star.`,
       author: {
-        name: data.sender.login,
-        icon_url: data.sender.avatar_url,
+        name: data.sender.login || "unknown",
+        icon_url:
+          data.sender.avatar_url ||
+          "https://cdn.nhcarrigan.com/content/profile.jpg",
       },
       fields: [
         {
           name: "Repository",
-          value: data.repository.name,
+          value: data.repository.name || "unknown",
         },
       ],
       footer: {

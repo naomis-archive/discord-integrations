@@ -18,8 +18,10 @@ export const generateIssuesEmbed = (
       color: 0x8b4283,
       description: `An issue was ${data.action}!`,
       author: {
-        name: data.sender.login,
-        icon_url: data.sender.avatar_url,
+        name: data.sender.login || "unknown",
+        icon_url:
+          data.sender.avatar_url ||
+          "https://cdn.nhcarrigan.com/content/profile.jpg",
       },
       fields: [
         {
