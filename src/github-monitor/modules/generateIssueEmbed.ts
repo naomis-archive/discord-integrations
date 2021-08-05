@@ -9,7 +9,7 @@ export const generateIssuesEmbed = (
   data: GithubIssuesInt
 ): DiscordEmbedInt | null => {
   try {
-    if (["opened", "edited", "deleted", "closed"].includes(data.action)) {
+    if (!["opened", "edited", "deleted", "closed"].includes(data.action)) {
       return null;
     }
     const embed: DiscordEmbedInt = {
