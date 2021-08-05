@@ -1,1 +1,5 @@
-export const IgnoredActors = ["renovate[bot]", "codeclimate[bot]"];
+export const IgnoredActors = [
+  "renovate[bot]",
+  "codeclimate[bot]",
+  "dependabot[bot]",
+];

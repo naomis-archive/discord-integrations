@@ -2,6 +2,7 @@ import { DiscordEmbedInt } from "../../interfaces/DiscordEmbedInt";
 import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
 import { customSubstring } from "../../utils/customSubstring";
 import { errorHandler } from "../../utils/errorHandler";
+import { IgnoredActors } from "../config/IgnoredActors";
 import { GithubPullInt } from "../interfaces/GithubPullInt";
 
 export const generatePullEmbed = (
@@ -10,6 +11,9 @@ export const generatePullEmbed = (
 ): DiscordEmbedInt | null => {
   try {
     if (!["opened", "edited", "closed"].includes(data.action)) {
+      return null;
+    }
+    if (IgnoredActors.includes(data.pull_request.user.login)) {
       return null;
     }
     const embed: DiscordEmbedInt = {
