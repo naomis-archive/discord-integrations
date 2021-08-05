@@ -5,6 +5,7 @@ import { logHandler } from "./utils/logHandler";
 import { twitterMonitor } from "./twitter-monitor/twitterMonitor";
 import { wakatimeMonitor } from "./wakatime-monitor/wakatimeMonitor";
 import { server } from "./server/server";
+import { validateWebhooks } from "./utils/validateWebhooks";
 
 const initialise = async () => {
   logHandler.log("debug", "Validating environment variables.");
@@ -14,6 +15,9 @@ const initialise = async () => {
     logHandler.log("error", CONFIG);
     return;
   }
+
+  logHandler.log("debug", "validating webhooks");
+  await validateWebhooks(CONFIG);
 
   logHandler.log("debug", "Initialising Sentry monitor");
   Sentry.init({
