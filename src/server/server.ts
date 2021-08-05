@@ -6,6 +6,7 @@ import https from "https";
 import { logHandler } from "../utils/logHandler";
 import path from "path";
 import { uptimeMonitor } from "../uptime-monitor/uptimeMonitor";
+import { sentryMonitor } from "../sentry-monitor/sentryMonitor";
 
 export const server = async (CONFIG: GlobalConfigInt): Promise<void> => {
   const app = express();
@@ -17,6 +18,13 @@ export const server = async (CONFIG: GlobalConfigInt): Promise<void> => {
   app.post(
     "/uptime",
     async (req, res) => await uptimeMonitor(CONFIG, req, res)
+  );
+
+  // sentry monitor middleware
+  logHandler.log("http", "sentry monitor mounted");
+  app.post(
+    "/sentry",
+    async (req, res) => await sentryMonitor(CONFIG, req, res)
   );
 
   // root url

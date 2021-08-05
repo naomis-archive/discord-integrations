@@ -1,6 +1,7 @@
 import { ParsedTweetInt } from "../../interfaces/ParsedTweetInt";
 import { TweetIncludesInt, TweetInt } from "../../interfaces/TweetListInt";
 import { errorHandler } from "../../../utils/errorHandler";
+import { GlobalConfigInt } from "../../../interfaces/GlobalConfigInt";
 
 /**
  * Parses a tweet object into a new object.
@@ -11,6 +12,7 @@ import { errorHandler } from "../../../utils/errorHandler";
  * @returns {ParsedTweetInt} - A new object representing the tweet.
  */
 export const parseTweet = (
+  CONFIG: GlobalConfigInt,
   tweet: TweetInt,
   includes: TweetIncludesInt
 ): ParsedTweetInt | null => {
@@ -62,7 +64,7 @@ export const parseTweet = (
       profile: `https://twitter.com/${author?.username || "nhcarrigan"}`,
     };
   } catch (err) {
-    errorHandler("tweet parser", err);
+    errorHandler(CONFIG, "tweet parser", err);
     return null;
   }
 };

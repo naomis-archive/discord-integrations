@@ -5,19 +5,19 @@ import { GlobalConfigInt } from "../../../interfaces/GlobalConfigInt";
 
 /**
  * Takes parsed tweet data and posts it to a Discord webhook.
- * @param {ConfigInt} config - The environment configuration object.
+ * @param {ConfigInt} CONFIG - The environment CONFIGuration object.
  * @param {ParsedTweetInt} parsedTweet - The parsed tweet object to send.
  */
 export const sendTweet = async (
-  config: GlobalConfigInt,
+  CONFIG: GlobalConfigInt,
   tweet: ParsedTweetInt
 ): Promise<void> => {
   try {
-    await fetch(config.twitterDiscordWebhook, {
+    await fetch(CONFIG.twitterDiscordWebhook, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        content: `Hey there <@&${config.twitterNotificationRoleId}>, <@!${config.ownerId}> did a tweet!`,
+        content: `Hey there <@&${CONFIG.twitterNotificationRoleId}>, <@!${CONFIG.ownerId}> did a tweet!`,
         embeds: [
           {
             title: "nhcarrigan " + tweet.title,
@@ -39,6 +39,6 @@ export const sendTweet = async (
       }),
     });
   } catch (err) {
-    errorHandler("tweet sender", err);
+    errorHandler(CONFIG, "tweet sender", err);
   }
 };

@@ -1,6 +1,10 @@
+import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
 import { errorHandler } from "../../utils/errorHandler";
 
-export const parseUptimeSeconds = (secondsString: string): string => {
+export const parseUptimeSeconds = (
+  CONFIG: GlobalConfigInt,
+  secondsString: string
+): string => {
   try {
     const seconds = parseInt(secondsString);
     const days = seconds >= 86400 ? Math.floor(seconds / 86400) : 0;
@@ -14,7 +18,7 @@ export const parseUptimeSeconds = (secondsString: string): string => {
 
     return `${days}d ${hours}h ${minutes}m ${secondsRemain}s`;
   } catch (err) {
-    errorHandler("uptime seconds parser", err);
+    errorHandler(CONFIG, "uptime seconds parser", err);
     return "unknown";
   }
 };

@@ -2,6 +2,7 @@ export interface GlobalConfigInt {
   // global values
   sentryDsn: string;
   ownerId: string;
+  globalDiscordWebhook: string;
   environment: "development" | "production";
   // twitter monitor
   twitterToken: string;
@@ -17,4 +18,8 @@ export interface GlobalConfigInt {
   uptimeSecret: string;
   uptimeDiscordWebhook: string;
   uptimeNotificationRoleId: string;
+  // sentry monitor
+  sentrySecret: string;
+  sentryDiscordWebhook: string;
+  sentryNotificationRoleId: string;
 }

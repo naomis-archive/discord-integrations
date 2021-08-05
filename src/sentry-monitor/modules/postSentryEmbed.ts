@@ -3,22 +3,22 @@ import { DiscordEmbedInt } from "../../interfaces/DiscordEmbedInt";
 import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
 import { errorHandler } from "../../utils/errorHandler";
 
-export const postUptimeEmbed = async (
+export const postSentryEmbed = async (
   CONFIG: GlobalConfigInt,
   embed: DiscordEmbedInt
 ): Promise<void> => {
   try {
-    await fetch(CONFIG.uptimeDiscordWebhook, {
+    await fetch(CONFIG.sentryDiscordWebhook, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        content: `<@&${CONFIG.uptimeNotificationRoleId}>, one of <@!${CONFIG.ownerId}>'s applications has changed status.`,
+        content: `<@&${CONFIG.sentryNotificationRoleId}>, one of <@!${CONFIG.ownerId}>'s applications has encountered an error.`,
         embeds: [embed],
       }),
     });
   } catch (err) {
-    errorHandler(CONFIG, "post embed", err);
+    errorHandler(CONFIG, "post sentry embed", err);
   }
 };
