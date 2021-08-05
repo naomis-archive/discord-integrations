@@ -13,7 +13,7 @@ import { generatePullEmbed } from "./modules/generatePullEmbed";
 import { generateStarEmbed } from "./modules/generateStarEmbed";
 import { postGithubEmbed } from "./modules/postGithubEmbed";
 
-export const sentryMonitor = async (
+export const githubMonitor = async (
   CONFIG: GlobalConfigInt,
   req: Request,
   res: Response

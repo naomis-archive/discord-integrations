@@ -7,6 +7,7 @@ import { logHandler } from "../utils/logHandler";
 import path from "path";
 import { uptimeMonitor } from "../uptime-monitor/uptimeMonitor";
 import { sentryMonitor } from "../sentry-monitor/sentryMonitor";
+import { githubMonitor } from "../github-monitor/githubMonitor";
 
 export const server = async (CONFIG: GlobalConfigInt): Promise<void> => {
   const app = express();
@@ -25,6 +26,13 @@ export const server = async (CONFIG: GlobalConfigInt): Promise<void> => {
   app.post(
     "/sentry",
     async (req, res) => await sentryMonitor(CONFIG, req, res)
+  );
+
+  // github monitor middleware
+  logHandler.log("http", "github monitor mounted");
+  app.post(
+    "/github",
+    async (req, res) => await githubMonitor(CONFIG, req, res)
   );
 
   // root url
