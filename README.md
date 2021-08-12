@@ -2,12 +2,6 @@
 
 This is a collection of various helpful Discord integrations I have written.
 
-![](https://img.shields.io/codeclimate/maintainability/nhcarrigan/discord-integrations)
-![](https://img.shields.io/codeclimate/issues/nhcarrigan/discord-integrations)
-![](https://img.shields.io/codeclimate/tech-debt/nhcarrigan/discord-integrations)
-![](https://img.shields.io/lgtm/alerts/github/nhcarrigan/discord-integrations)
-![](https://img.shields.io/lgtm/grade/javascript/github/nhcarrigan/discord-integrations)
-
 ## Live Version
 
 These integrations can be viewed in my [Discord Server](https://chat.nhcarrigan.com).
