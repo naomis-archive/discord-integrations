@@ -3,6 +3,13 @@ import { WakatimeDataInt } from "../interfaces/WakatimeDataInt";
 import { errorHandler } from "../../utils/errorHandler";
 import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
 
+/**
+ * Parses Wakatime Data into a Discord Embed.
+ *
+ * @param {GlobalConfigInt} CONFIG The global configuration object.
+ * @param {WakatimeDataInt} data The data received from the Wakatime API.
+ * @returns {DiscordEmbedInt} The Discord Embed, or `null` on error.
+ */
 export const parseWakatimeData = async (
   CONFIG: GlobalConfigInt,
   data: WakatimeDataInt

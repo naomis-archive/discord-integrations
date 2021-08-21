@@ -1,5 +1,8 @@
 import { GithubUserInt } from "./GithubUserInt";
 
+/**
+ * The structure of the NESTED issue data from the GitHub Webhook.
+ */
 export interface GithubIssueInt {
   id: number;
   node_id: string;

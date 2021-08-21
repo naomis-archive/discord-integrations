@@ -1,6 +1,10 @@
 import { createLogger, format, transports, config } from "winston";
 const { combine, timestamp, colorize, printf } = format;
 
+/**
+ * Custom log handler, using Winston to format and print messages
+ * to the terminal.
+ */
 export const logHandler = createLogger({
   levels: config.npm.levels,
   level: "silly",

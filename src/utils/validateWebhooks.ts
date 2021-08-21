@@ -3,6 +3,12 @@ import { GlobalConfigInt } from "../interfaces/GlobalConfigInt";
 import { errorHandler } from "./errorHandler";
 import { sendTestEmbed } from "./sendTestEmbed";
 
+/**
+ * Module to send a test embed to each webhook to confirm it is correct.
+ * If adding a new monitor, need to add a test step here.
+ *
+ * @param {GlobalConfigInt} CONFIG The global configuration object.
+ */
 export const validateWebhooks = async (
   CONFIG: GlobalConfigInt
 ): Promise<void> => {

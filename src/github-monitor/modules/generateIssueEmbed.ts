@@ -4,6 +4,13 @@ import { customSubstring } from "../../utils/customSubstring";
 import { errorHandler } from "../../utils/errorHandler";
 import { GithubIssuesInt } from "../interfaces/GithubIssuesInt";
 
+/**
+ * Generates a Discord embed from the Github issue data.
+ *
+ * @param {GlobalConfigInt} CONFIG The global config data.
+ * @param {GithubIssuesInt} data The GitHub issue data nested in the payload received from the webhook.
+ * @returns {DiscordEmbedInt} A Discord embed,, or `null` on error.
+ */
 export const generateIssuesEmbed = (
   CONFIG: GlobalConfigInt,
   data: GithubIssuesInt

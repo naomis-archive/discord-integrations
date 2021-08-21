@@ -13,6 +13,13 @@ import { generatePullEmbed } from "./modules/generatePullEmbed";
 import { generateStarEmbed } from "./modules/generateStarEmbed";
 import { postGithubEmbed } from "./modules/postGithubEmbed";
 
+/**
+ * This function handles requests to the `/github` endpoint.
+ *
+ * @param {GlobalConfigInt} CONFIG The global config object.
+ * @param {Request} req The request data parsed by Express.
+ * @param {Response} res The response data parsed by Express.
+ */
 export const githubMonitor = async (
   CONFIG: GlobalConfigInt,
   req: Request,

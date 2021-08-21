@@ -3,6 +3,12 @@ import { DiscordEmbedInt } from "../../interfaces/DiscordEmbedInt";
 import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
 import { errorHandler } from "../../utils/errorHandler";
 
+/**
+ * Generates a Discord embed from the Github comment data.
+ *
+ * @param {GlobalConfigInt} CONFIG The global config data.
+ * @param {DiscordEmbedInt} embed The Discord embed object.
+ */
 export const postGithubEmbed = async (
   CONFIG: GlobalConfigInt,
   embed: DiscordEmbedInt

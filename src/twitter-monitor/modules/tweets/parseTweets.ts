@@ -4,12 +4,14 @@ import { errorHandler } from "../../../utils/errorHandler";
 import { GlobalConfigInt } from "../../../interfaces/GlobalConfigInt";
 
 /**
- * Parses a tweet object into a new object.
+ * This parses a tweet object into a new object.
  * Will modify the new object based on the type of
- * the tweet (i.e. quote tweet vs reply vs original).
+ * the tweet (ie quote tweet vs reply vs original).
+ *
+ * @param {GlobalConfigInt} CONFIG The global config object.
  * @param {TweetInt} tweet - A single tweet object received from the API.
  * @param {TweetIncludesInt} includes - The includes values from the API, containing user and referenced tweet data.
- * @returns {ParsedTweetInt} - A new object representing the tweet.
+ * @returns {ParsedTweetInt} - A new object representing the tweet, or `null` on error.
  */
 export const parseTweet = (
   CONFIG: GlobalConfigInt,

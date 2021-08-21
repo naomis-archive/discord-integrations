@@ -6,6 +6,13 @@ import { SentryDataInt } from "./interfaces/SentryDataInt";
 import { postSentryEmbed } from "./modules/postSentryEmbed";
 import { sentryDiscordEmbed } from "./modules/sentryDiscordEmbed";
 
+/**
+ * This function handles requests to the `/sentry` endpoint.
+ *
+ * @param {GlobalConfigInt} CONFIG The global config object.
+ * @param {Request} req The request data parsed by Express.
+ * @param {Response} res The response data parsed by Express.
+ */
 export const sentryMonitor = async (
   CONFIG: GlobalConfigInt,
   req: Request,

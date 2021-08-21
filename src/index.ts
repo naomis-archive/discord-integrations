@@ -7,6 +7,9 @@ import { wakatimeMonitor } from "./wakatime-monitor/wakatimeMonitor";
 import { server } from "./server/server";
 import { validateWebhooks } from "./utils/validateWebhooks";
 
+/**
+ * Main entry point for the application.
+ */
 const initialise = async () => {
   logHandler.log("debug", "Validating environment variables.");
   const CONFIG = await validateEnv();

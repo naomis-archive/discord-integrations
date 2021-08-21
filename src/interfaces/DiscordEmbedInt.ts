@@ -1,3 +1,8 @@
+/**
+ * This is the structure that Discord expects for an embed.
+ * Note that all properties are technically optional,
+ * but cannot be empty strings.
+ */
 export interface DiscordEmbedInt {
   title?: string;
   type?: "rich";

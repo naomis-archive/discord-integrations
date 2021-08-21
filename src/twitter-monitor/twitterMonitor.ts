@@ -2,6 +2,11 @@ import { GlobalConfigInt } from "../interfaces/GlobalConfigInt";
 import { logHandler } from "../utils/logHandler";
 import { monitorTweets } from "./modules/monitorTweets";
 
+/**
+ * Module to load the twitter wrapper and schedule it on an interval.
+ *
+ * @param {GlobalConfigInt} CONFIG The global config object.
+ */
 export const twitterMonitor = async (
   CONFIG: GlobalConfigInt
 ): Promise<void> => {

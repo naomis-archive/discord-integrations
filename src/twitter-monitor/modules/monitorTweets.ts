@@ -7,7 +7,8 @@ import { sendTweet } from "./tweets/sendTweets";
 
 /**
  * Wrapper to handle all of the Twitter-Discord logic.
- * @param {ConfigInt} CONFIG - The environment CONFIGuration object.
+ *
+ * @param {GlobalConfigInt} CONFIG - The environment CONFIGuration object.
  */
 export const monitorTweets = async (CONFIG: GlobalConfigInt): Promise<void> => {
   try {

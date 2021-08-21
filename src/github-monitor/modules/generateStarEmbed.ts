@@ -3,6 +3,13 @@ import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
 import { errorHandler } from "../../utils/errorHandler";
 import { GithubStarInt } from "../interfaces/GithubStarInt";
 
+/**
+ * Generates a Discord embed from the Github star data.
+ *
+ * @param {GlobalConfigInt} CONFIG The global config data.
+ * @param {GithubStarInt} data The GitHub star payload received from the webhook.
+ * @returns {DiscordEmbedInt} A Discord embed, or `null` on error.
+ */
 export const generateStarEmbed = (
   CONFIG: GlobalConfigInt,
   data: GithubStarInt

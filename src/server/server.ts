@@ -9,6 +9,11 @@ import { uptimeMonitor } from "../uptime-monitor/uptimeMonitor";
 import { sentryMonitor } from "../sentry-monitor/sentryMonitor";
 import { githubMonitor } from "../github-monitor/githubMonitor";
 
+/**
+ * This instantiates the Express server and mounts the endpoint middleware.
+ *
+ * @param {GlobalConfigInt} CONFIG The global config object.
+ */
 export const server = async (CONFIG: GlobalConfigInt): Promise<void> => {
   const app = express();
 

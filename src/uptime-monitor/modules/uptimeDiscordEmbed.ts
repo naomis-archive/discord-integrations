@@ -4,6 +4,14 @@ import { errorHandler } from "../../utils/errorHandler";
 import { UptimeDataInt } from "../interfaces/UptimeDataInt";
 import { parseUptimeSeconds } from "./parseUptimeSeconds";
 
+/**
+ * This function takes the data from the Uptime Monitor and
+ * formats it into a Discord embed.
+ *
+ * @param {GlobalConfigInt} CONFIG The global configuration object.
+ * @param {UptimeDataInt} data The data from the Uptime Monitor.
+ * @returns {DiscordEmbedInt} The formatted Discord embed, or `null` on error.
+ */
 export const uptimeDiscordEmbed = (
   CONFIG: GlobalConfigInt,
   data: UptimeDataInt

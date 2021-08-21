@@ -1,6 +1,13 @@
 import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
 import { errorHandler } from "../../utils/errorHandler";
 
+/**
+ * Parses a string of seconds into a human readable format.
+ *
+ * @param {GlobalConfigInt} CONFIG The global config object.
+ * @param {string} secondsString The seconds to parse.
+ * @returns {string} A human readable format of the time elapsed.
+ */
 export const parseUptimeSeconds = (
   CONFIG: GlobalConfigInt,
   secondsString: string

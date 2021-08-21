@@ -8,8 +8,9 @@ import { GlobalConfigInt } from "../../../interfaces/GlobalConfigInt";
  * Will set the necessary fields for the data
  * handling, and will limit tweets based on latest
  * seen tweet (with a max of 100).
- * @param {ConfigInt} CONFIG The environment CONFIGuration object.
- * @returns {Promise<TweetListInt>} A promise that resolves to an array of tweet data.
+ *
+ * @param {GlobalConfigInt} CONFIG The global config object.
+ * @returns {TweetListInt} An array of tweet data.
  */
 export const fetchTweets = async (
   CONFIG: GlobalConfigInt

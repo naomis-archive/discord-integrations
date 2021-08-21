@@ -1,5 +1,9 @@
 import { GithubUserInt } from "./GithubUserInt";
 
+/**
+ * Structure of the repo data, sent on pretty much
+ * every GitHub Webhook payload.
+ */
 export interface GithubRepoInt {
   id: number;
   node_id: string;

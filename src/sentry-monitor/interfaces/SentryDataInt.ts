@@ -1,3 +1,6 @@
+/**
+ * This represents an error object from Sentry.
+ */
 export interface SentryDataInt {
   id: string;
   project: string;

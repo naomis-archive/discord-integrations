@@ -3,6 +3,13 @@ import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
 import { errorHandler } from "../../utils/errorHandler";
 import { GithubCommentInt } from "../interfaces/GithubCommentInt";
 
+/**
+ * Generates a Discord embed from the Github comment data.
+ *
+ * @param {GlobalConfigInt} CONFIG The global config data.
+ * @param {GithubCommentInt} data The GitHub comment payload received from the webhook.
+ * @returns {DiscordEmbedInt} A Discord embed, or `null` on error.
+ */
 export const generateCommentInt = (
   CONFIG: GlobalConfigInt,
   data: GithubCommentInt

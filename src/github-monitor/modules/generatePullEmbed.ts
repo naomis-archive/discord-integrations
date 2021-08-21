@@ -5,6 +5,13 @@ import { errorHandler } from "../../utils/errorHandler";
 import { IgnoredActors } from "../config/IgnoredActors";
 import { GithubPullInt } from "../interfaces/GithubPullInt";
 
+/**
+ * Generates a Discord embed from the Github pull request data.
+ *
+ * @param {GlobalConfigInt} CONFIG The global config data.
+ * @param {GithubPullInt} data The GitHub pull request data nested in the payload received from the webhook.
+ * @returns {DiscordEmbedInt} A Discord embed, or `null` on error.
+ */
 export const generatePullEmbed = (
   CONFIG: GlobalConfigInt,
   data: GithubPullInt
