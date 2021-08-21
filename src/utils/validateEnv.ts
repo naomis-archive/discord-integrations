@@ -3,6 +3,8 @@ import { GlobalConfigInt } from "../interfaces/GlobalConfigInt";
 /**
  * Module to verify that all environment variables
  * have been set.
+ *
+ * @returns {GlobalConfigInt | string} The global config object with values filled in, or a string on missing values.
  */
 export const validateEnv = async (): Promise<GlobalConfigInt | string> => {
   if (!process.env.SENTRY_DSN) {

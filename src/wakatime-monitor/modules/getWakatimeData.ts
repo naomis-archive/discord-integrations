@@ -3,6 +3,13 @@ import { WakatimeDataInt } from "../interfaces/WakatimeDataInt";
 import { errorHandler } from "../../utils/errorHandler";
 import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
 
+/**
+ * THis function makes a request to the Wakatime API for activity within
+ * the last 24 hours.
+ *
+ * @param {GlobalConfigInt} CONFIG The global config object.
+ * @returns {WakatimeDataInt} The Wakatime Data, or `null` on error.
+ */
 export const getWakatimeData = async (
   CONFIG: GlobalConfigInt
 ): Promise<WakatimeDataInt | null> => {

@@ -3,6 +3,12 @@ import { DiscordEmbedInt } from "../../interfaces/DiscordEmbedInt";
 import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
 import { errorHandler } from "../../utils/errorHandler";
 
+/**
+ * Sends a Discord embed to the Wakatime Webhook.
+ *
+ * @param {GlobalConfigInt} CONFIG The global config object.
+ * @param {DiscordEmbedInt} embed The Discord embed to send.
+ */
 export const postWakatimeEmbed = async (
   CONFIG: GlobalConfigInt,
   embed: DiscordEmbedInt

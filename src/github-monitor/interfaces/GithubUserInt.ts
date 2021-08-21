@@ -1,3 +1,8 @@
+/**
+ * Structure of the user data sent on almost every
+ * GitHub Webhook payload.
+ */
+
 export interface GithubUserInt {
   login: string;
   id: number;

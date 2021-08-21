@@ -3,6 +3,13 @@ import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
 import { errorHandler } from "../../utils/errorHandler";
 import { SentryDataInt } from "../interfaces/SentryDataInt";
 
+/**
+ * This function converts a Sentry error object into a Discord embed.
+ *
+ * @param {GlobalConfigInt} CONFIG The global config object.
+ * @param {SentryDataInt} data The Sentry error object.
+ * @returns {DiscordEmbedInt} The Discord embed object, or `null` on error.
+ */
 export const sentryDiscordEmbed = (
   CONFIG: GlobalConfigInt,
   data: SentryDataInt

@@ -6,6 +6,13 @@ import { UptimeDataInt } from "./interfaces/UptimeDataInt";
 import { postUptimeEmbed } from "./modules/postUptimeEmbed";
 import { uptimeDiscordEmbed } from "./modules/uptimeDiscordEmbed";
 
+/**
+ * This function handles requests to the `/uptime` endpoint.
+ *
+ * @param {GlobalConfigInt} CONFIG The global config object.
+ * @param {Request} req The request data parsed by Express.
+ * @param {Response} res The response data parsed by Express.
+ */
 export const uptimeMonitor = async (
   CONFIG: GlobalConfigInt,
   req: Request,

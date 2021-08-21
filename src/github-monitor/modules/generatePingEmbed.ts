@@ -3,6 +3,13 @@ import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
 import { errorHandler } from "../../utils/errorHandler";
 import { GithubPingInt } from "../interfaces/GithubPingInt";
 
+/**
+ * Generates a Discord embed from the Github ping data.
+ *
+ * @param {GlobalConfigInt} CONFIG The global config data.
+ * @param {GithubPingInt} data The GitHub ping payload received from the webhook.
+ * @returns {DiscordEmbedInt} A Discord embed, or `null` on error.
+ */
 export const generatePingEmbed = (
   CONFIG: GlobalConfigInt,
   data: GithubPingInt

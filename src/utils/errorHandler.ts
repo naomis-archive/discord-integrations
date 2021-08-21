@@ -2,6 +2,15 @@ import * as Sentry from "@sentry/node";
 import { GlobalConfigInt } from "../interfaces/GlobalConfigInt";
 import { logHandler } from "./logHandler";
 import { postErrorMessage } from "./postErrorMessage";
+
+/**
+ * Custom error handler to pass exceptions to Sentry and
+ * post a notice to the Discord webhook.
+ *
+ * @param {GlobalConfigInt} CONFIG The global config object.
+ * @param {string} context A description of where in the codebase the error occurred.
+ * @param {Error} error The error object.
+ */
 export const errorHandler = (
   CONFIG: GlobalConfigInt,
   context: string,

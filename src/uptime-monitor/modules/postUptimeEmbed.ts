@@ -3,6 +3,12 @@ import { DiscordEmbedInt } from "../../interfaces/DiscordEmbedInt";
 import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
 import { errorHandler } from "../../utils/errorHandler";
 
+/**
+ * This function posts a Discord embed to the Uptime webhook.
+ *
+ * @param {GlobalConfigInt} CONFIG The global config object.
+ * @param {DiscordEmbedInt} embed The embed to post.
+ */
 export const postUptimeEmbed = async (
   CONFIG: GlobalConfigInt,
   embed: DiscordEmbedInt

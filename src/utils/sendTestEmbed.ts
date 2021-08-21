@@ -2,6 +2,14 @@ import fetch from "node-fetch";
 import { GlobalConfigInt } from "../interfaces/GlobalConfigInt";
 import { errorHandler } from "./errorHandler";
 
+/**
+ * Sends a test embed to the specified Discord webhook.
+ *
+ * @param {GlobalConfigInt} CONFIG The global config object.
+ * @param {string} url The Discord Webhook URL.
+ * @param {string} name The name of the Webhook (i.e. Sentry).
+ * @returns {boolean} True if the embed sends correctly, false otherwise.
+ */
 export const sendTestEmbed = async (
   CONFIG: GlobalConfigInt,
   url: string,

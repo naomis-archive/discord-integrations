@@ -3,6 +3,13 @@ import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
 import { errorHandler } from "../../utils/errorHandler";
 import { GithubForkInt } from "../interfaces/GithubForkInt";
 
+/**
+ * Generates a Discord embed from the Github fork data.
+ *
+ * @param {GlobalConfigInt} CONFIG The global config data.
+ * @param {GithubForkInt} data The GitHub fork payload received from the webhook.
+ * @returns {DiscordEmbedInt} A Discord embed, or `null` on error.
+ */
 export const generateForkEmbed = (
   CONFIG: GlobalConfigInt,
   data: GithubForkInt

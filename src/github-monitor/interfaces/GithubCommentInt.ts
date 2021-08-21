@@ -2,6 +2,9 @@ import { GithubIssueInt } from "./GithubIssueInt";
 import { GithubRepoInt } from "./GithubRepoInt";
 import { GithubUserInt } from "./GithubUserInt";
 
+/**
+ * The structure of the comment data from the Github Webhook.
+ */
 export interface GithubCommentInt {
   action: string;
   issue: GithubIssueInt;

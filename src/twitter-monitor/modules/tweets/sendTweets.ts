@@ -5,8 +5,9 @@ import { GlobalConfigInt } from "../../../interfaces/GlobalConfigInt";
 
 /**
  * Takes parsed tweet data and posts it to a Discord webhook.
- * @param {ConfigInt} CONFIG - The environment CONFIGuration object.
- * @param {ParsedTweetInt} parsedTweet - The parsed tweet object to send.
+ *
+ * @param {GlobalConfigInt} CONFIG - The global config object.
+ * @param {ParsedTweetInt} tweet - The parsed tweet object to send.
  */
 export const sendTweet = async (
   CONFIG: GlobalConfigInt,
