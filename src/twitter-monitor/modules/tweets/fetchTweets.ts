@@ -47,7 +47,7 @@ export const fetchTweets = async (
       },
     });
 
-    const data = await raw.json();
+    const data = (await raw.json()) as TweetListInt;
     return data;
   } catch (err) {
     errorHandler(CONFIG, "fetch tweets module", err);
