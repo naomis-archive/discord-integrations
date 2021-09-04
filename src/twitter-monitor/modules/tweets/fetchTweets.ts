@@ -1,7 +1,8 @@
-import { TweetListInt } from "../../interfaces/TweetListInt";
-import { errorHandler } from "../../../utils/errorHandler";
 import fetch from "node-fetch";
+
 import { GlobalConfigInt } from "../../../interfaces/GlobalConfigInt";
+import { errorHandler } from "../../../utils/errorHandler";
+import { TweetListInt } from "../../interfaces/TweetListInt";
 
 /**
  * Fetches tweets from the twitter API.

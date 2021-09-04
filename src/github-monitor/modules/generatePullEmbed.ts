@@ -30,6 +30,7 @@ export const generatePullEmbed = (
       description: `A pull request was ${data.action}`,
       author: {
         name: data.sender.login || "unknown",
+        // eslint-disable-next-line camelcase
         icon_url:
           data.sender.avatar_url ||
           "https://cdn.nhcarrigan.com/content/profile.jpg",

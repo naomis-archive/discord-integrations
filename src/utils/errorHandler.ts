@@ -1,6 +1,8 @@
 /* eslint-disable jsdoc/no-undefined-types */
 import * as Sentry from "@sentry/node";
+
 import { GlobalConfigInt } from "../interfaces/GlobalConfigInt";
+
 import { logHandler } from "./logHandler";
 import { postErrorMessage } from "./postErrorMessage";
 

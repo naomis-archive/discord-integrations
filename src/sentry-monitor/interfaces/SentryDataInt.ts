@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /**
  * This represents an error object from Sentry.
  */

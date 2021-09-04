@@ -1,7 +1,9 @@
 import { Request, Response } from "express";
+
 import { GlobalConfigInt } from "../interfaces/GlobalConfigInt";
 import { errorHandler } from "../utils/errorHandler";
 import { logHandler } from "../utils/logHandler";
+
 import { UptimeDataInt } from "./interfaces/UptimeDataInt";
 import { postUptimeEmbed } from "./modules/postUptimeEmbed";
 import { uptimeDiscordEmbed } from "./modules/uptimeDiscordEmbed";

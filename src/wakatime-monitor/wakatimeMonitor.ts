@@ -1,5 +1,6 @@
 import { GlobalConfigInt } from "../interfaces/GlobalConfigInt";
 import { logHandler } from "../utils/logHandler";
+
 import { handleWakatimeData } from "./modules/handleWakatimeData";
 
 /**
@@ -7,9 +8,7 @@ import { handleWakatimeData } from "./modules/handleWakatimeData";
  *
  * @param {GlobalConfigInt} CONFIG The global config object.
  */
-export const wakatimeMonitor = async (
-  CONFIG: GlobalConfigInt
-): Promise<void> => {
+export const wakatimeMonitor = (CONFIG: GlobalConfigInt): void => {
   logHandler.log("debug", "Wakatime Monitor Scheduled!");
 
   setInterval(async () => {

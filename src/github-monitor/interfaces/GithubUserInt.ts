@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /**
  * Structure of the user data sent on almost every
  * GitHub Webhook payload.

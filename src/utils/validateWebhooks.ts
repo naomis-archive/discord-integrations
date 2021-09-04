@@ -1,5 +1,7 @@
 import fetch from "node-fetch";
+
 import { GlobalConfigInt } from "../interfaces/GlobalConfigInt";
+
 import { errorHandler } from "./errorHandler";
 import { sendTestEmbed } from "./sendTestEmbed";
 

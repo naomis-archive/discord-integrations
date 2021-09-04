@@ -1,7 +1,7 @@
 import { DiscordEmbedInt } from "../../interfaces/DiscordEmbedInt";
-import { WakatimeDataInt } from "../interfaces/WakatimeDataInt";
-import { errorHandler } from "../../utils/errorHandler";
 import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
+import { errorHandler } from "../../utils/errorHandler";
+import { WakatimeDataInt } from "../interfaces/WakatimeDataInt";
 
 /**
  * Parses Wakatime Data into a Discord Embed.
@@ -10,10 +10,10 @@ import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
  * @param {WakatimeDataInt} data The data received from the Wakatime API.
  * @returns {DiscordEmbedInt} The Discord Embed, or `null` on error.
  */
-export const parseWakatimeData = async (
+export const parseWakatimeData = (
   CONFIG: GlobalConfigInt,
   data: WakatimeDataInt
-): Promise<DiscordEmbedInt | null> => {
+): DiscordEmbedInt | null => {
   try {
     const projectList: string[] = [];
     const languageList: string[] = [];
@@ -57,6 +57,7 @@ export const parseWakatimeData = async (
       ],
       author: {
         name: "nhcarrigan",
+        // eslint-disable-next-line camelcase
         icon_url: "https://cdn.nhcarrigan.com/content/profile.jpg",
       },
       footer: {

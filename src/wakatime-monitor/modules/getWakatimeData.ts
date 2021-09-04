@@ -1,7 +1,8 @@
 import fetch from "node-fetch";
-import { WakatimeDataInt } from "../interfaces/WakatimeDataInt";
-import { errorHandler } from "../../utils/errorHandler";
+
 import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
+import { errorHandler } from "../../utils/errorHandler";
+import { WakatimeDataInt } from "../interfaces/WakatimeDataInt";
 
 /**
  * THis function makes a request to the Wakatime API for activity within

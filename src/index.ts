@@ -1,18 +1,19 @@
-import * as Sentry from "@sentry/node";
 import { RewriteFrames } from "@sentry/integrations";
-import { validateEnv } from "./utils/validateEnv";
-import { logHandler } from "./utils/logHandler";
-import { twitterMonitor } from "./twitter-monitor/twitterMonitor";
-import { wakatimeMonitor } from "./wakatime-monitor/wakatimeMonitor";
+import * as Sentry from "@sentry/node";
+
 import { server } from "./server/server";
+import { twitterMonitor } from "./twitter-monitor/twitterMonitor";
+import { logHandler } from "./utils/logHandler";
+import { validateEnv } from "./utils/validateEnv";
 import { validateWebhooks } from "./utils/validateWebhooks";
+import { wakatimeMonitor } from "./wakatime-monitor/wakatimeMonitor";
 
 /**
  * Main entry point for the application.
  */
 const initialise = async () => {
   logHandler.log("debug", "Validating environment variables.");
-  const CONFIG = await validateEnv();
+  const CONFIG = validateEnv();
 
   if (typeof CONFIG === "string") {
     logHandler.log("error", CONFIG);
@@ -40,7 +41,7 @@ const initialise = async () => {
   await twitterMonitor(CONFIG);
 
   logHandler.log("debug", "Loading Wakatime monitor");
-  await wakatimeMonitor(CONFIG);
+  wakatimeMonitor(CONFIG);
 };
 
 initialise();

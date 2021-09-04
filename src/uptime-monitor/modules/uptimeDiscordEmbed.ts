@@ -2,6 +2,7 @@ import { DiscordEmbedInt } from "../../interfaces/DiscordEmbedInt";
 import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
 import { errorHandler } from "../../utils/errorHandler";
 import { UptimeDataInt } from "../interfaces/UptimeDataInt";
+
 import { parseUptimeSeconds } from "./parseUptimeSeconds";
 
 /**

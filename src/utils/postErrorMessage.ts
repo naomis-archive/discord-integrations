@@ -1,6 +1,8 @@
 import fetch from "node-fetch";
+
 import { DiscordEmbedInt } from "../interfaces/DiscordEmbedInt";
 import { GlobalConfigInt } from "../interfaces/GlobalConfigInt";
+
 import { customSubstring } from "./customSubstring";
 
 /**
