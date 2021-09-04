@@ -1,7 +1,8 @@
-import { ParsedTweetInt } from "../../interfaces/ParsedTweetInt";
-import { errorHandler } from "../../../utils/errorHandler";
 import fetch from "node-fetch";
+
 import { GlobalConfigInt } from "../../../interfaces/GlobalConfigInt";
+import { errorHandler } from "../../../utils/errorHandler";
+import { ParsedTweetInt } from "../../interfaces/ParsedTweetInt";
 
 /**
  * Takes parsed tweet data and posts it to a Discord webhook.
@@ -32,6 +33,7 @@ export const sendTweet = async (
             color: 0x3a3240,
             author: {
               name: tweet.username,
+              // eslint-disable-next-line camelcase
               icon_url: tweet.avatar,
               url: tweet.profile,
             },

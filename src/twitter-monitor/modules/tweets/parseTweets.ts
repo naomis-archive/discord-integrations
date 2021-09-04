@@ -1,7 +1,7 @@
+import { GlobalConfigInt } from "../../../interfaces/GlobalConfigInt";
+import { errorHandler } from "../../../utils/errorHandler";
 import { ParsedTweetInt } from "../../interfaces/ParsedTweetInt";
 import { TweetIncludesInt, TweetInt } from "../../interfaces/TweetListInt";
-import { errorHandler } from "../../../utils/errorHandler";
-import { GlobalConfigInt } from "../../../interfaces/GlobalConfigInt";
 
 /**
  * This parses a tweet object into a new object.

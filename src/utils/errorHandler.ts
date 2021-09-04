@@ -1,5 +1,8 @@
+/* eslint-disable jsdoc/no-undefined-types */
 import * as Sentry from "@sentry/node";
+
 import { GlobalConfigInt } from "../interfaces/GlobalConfigInt";
+
 import { logHandler } from "./logHandler";
 import { postErrorMessage } from "./postErrorMessage";
 
@@ -9,13 +12,14 @@ import { postErrorMessage } from "./postErrorMessage";
  *
  * @param {GlobalConfigInt} CONFIG The global config object.
  * @param {string} context A description of where in the codebase the error occurred.
- * @param {Error} error The error object.
+ * @param {unknown} err The error object.
  */
 export const errorHandler = (
   CONFIG: GlobalConfigInt,
   context: string,
-  error: Error
+  err: unknown
 ): void => {
+  const error = err as Error;
   logHandler.log("error", `There was an error in the ${context}:`);
   logHandler.log(
     "error",

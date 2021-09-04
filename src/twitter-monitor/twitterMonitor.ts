@@ -1,5 +1,6 @@
 import { GlobalConfigInt } from "../interfaces/GlobalConfigInt";
 import { logHandler } from "../utils/logHandler";
+
 import { monitorTweets } from "./modules/monitorTweets";
 
 /**

@@ -6,6 +6,7 @@ import { GithubUserInt } from "./GithubUserInt";
  */
 export interface GithubStarInt {
   action: "created" | "deleted";
+  // eslint-disable-next-line camelcase
   starred_at: string;
   repository: GithubRepoInt;
   sender: GithubUserInt;

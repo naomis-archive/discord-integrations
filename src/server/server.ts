@@ -1,13 +1,15 @@
-import { GlobalConfigInt } from "../interfaces/GlobalConfigInt";
-import express from "express";
 import { readFile } from "fs/promises";
 import http from "http";
 import https from "https";
-import { logHandler } from "../utils/logHandler";
 import path from "path";
-import { uptimeMonitor } from "../uptime-monitor/uptimeMonitor";
-import { sentryMonitor } from "../sentry-monitor/sentryMonitor";
+
+import express from "express";
+
 import { githubMonitor } from "../github-monitor/githubMonitor";
+import { GlobalConfigInt } from "../interfaces/GlobalConfigInt";
+import { sentryMonitor } from "../sentry-monitor/sentryMonitor";
+import { uptimeMonitor } from "../uptime-monitor/uptimeMonitor";
+import { logHandler } from "../utils/logHandler";
 
 /**
  * This instantiates the Express server and mounts the endpoint middleware.

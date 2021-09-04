@@ -1,10 +1,11 @@
+import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
+import { errorHandler } from "../../utils/errorHandler";
 import { noWakatimeApiData } from "../data/noWakatimeApiData";
 import { noWakatimeYesterday } from "../data/noWakatimeYesterday";
-import { errorHandler } from "../../utils/errorHandler";
-import { postWakatimeEmbed } from "./postWakatimeEmbed";
+
 import { getWakatimeData } from "./getWakatimeData";
 import { parseWakatimeData } from "./parseWakatimeData";
-import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
+import { postWakatimeEmbed } from "./postWakatimeEmbed";
 
 /**
  * This function handles the Wakatime data received from the API.
@@ -23,7 +24,7 @@ export const handleWakatimeData = async (
       return;
     }
 
-    const parsedData = await parseWakatimeData(CONFIG, rawData);
+    const parsedData = parseWakatimeData(CONFIG, rawData);
 
     if (!parsedData) {
       await postWakatimeEmbed(CONFIG, noWakatimeYesterday);

@@ -1,7 +1,8 @@
-import { TweetListInt } from "../../interfaces/TweetListInt";
-import { errorHandler } from "../../../utils/errorHandler";
 import fetch from "node-fetch";
+
 import { GlobalConfigInt } from "../../../interfaces/GlobalConfigInt";
+import { errorHandler } from "../../../utils/errorHandler";
+import { TweetListInt } from "../../interfaces/TweetListInt";
 
 /**
  * Fetches tweets from the twitter API.
@@ -47,7 +48,7 @@ export const fetchTweets = async (
       },
     });
 
-    const data = await raw.json();
+    const data = (await raw.json()) as TweetListInt;
     return data;
   } catch (err) {
     errorHandler(CONFIG, "fetch tweets module", err);

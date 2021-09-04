@@ -6,7 +6,7 @@ import { GlobalConfigInt } from "../interfaces/GlobalConfigInt";
  *
  * @returns {GlobalConfigInt | string} The global config object with values filled in, or a string on missing values.
  */
-export const validateEnv = async (): Promise<GlobalConfigInt | string> => {
+export const validateEnv = (): GlobalConfigInt | string => {
   if (!process.env.SENTRY_DSN) {
     return "Missing Sentry DSN.";
   }

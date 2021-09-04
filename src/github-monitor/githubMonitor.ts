@@ -1,8 +1,10 @@
 import { Request, Response } from "express";
+
 import { DiscordEmbedInt } from "../interfaces/DiscordEmbedInt";
 import { GlobalConfigInt } from "../interfaces/GlobalConfigInt";
 import { errorHandler } from "../utils/errorHandler";
 import { logHandler } from "../utils/logHandler";
+
 import { IgnoredActors } from "./config/IgnoredActors";
 import { GithubHeadersInt } from "./interfaces/GithubHeadersInt";
 import { generateCommentInt } from "./modules/generateCommentEmbed";

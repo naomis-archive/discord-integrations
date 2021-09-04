@@ -1,6 +1,7 @@
 import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
 import { errorHandler } from "../../utils/errorHandler";
 import { logHandler } from "../../utils/logHandler";
+
 import { fetchTweets } from "./tweets/fetchTweets";
 import { parseTweet } from "./tweets/parseTweets";
 import { sendTweet } from "./tweets/sendTweets";
@@ -42,6 +43,8 @@ export const monitorTweets = async (CONFIG: GlobalConfigInt): Promise<void> => {
     }
 
     for (const tweet of tweets) {
+      CONFIG.lastTweet = tweet.id;
+
       logHandler.log("debug", `Processing tweet with ID of ${tweet.id}`);
       const parsed = parseTweet(CONFIG, tweet, data.includes);
 
@@ -52,8 +55,6 @@ export const monitorTweets = async (CONFIG: GlobalConfigInt): Promise<void> => {
 
       logHandler.log("debug", `Sending tweet ${tweet.id}`);
       await sendTweet(CONFIG, parsed);
-
-      CONFIG.lastTweet = tweet.id;
     }
 
     logHandler.log(

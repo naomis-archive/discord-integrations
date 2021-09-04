@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 export interface WakatimeDataInt {
   data: {
     grand_total: {

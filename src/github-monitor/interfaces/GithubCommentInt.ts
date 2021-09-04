@@ -9,6 +9,7 @@ export interface GithubCommentInt {
   action: string;
   issue: GithubIssueInt;
   comment: {
+    // eslint-disable-next-line camelcase
     html_url: string;
     body: string;
     user: GithubUserInt;

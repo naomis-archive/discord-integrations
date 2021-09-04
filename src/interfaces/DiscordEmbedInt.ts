@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /**
  * This is the structure that Discord expects for an embed.
  * Note that all properties are technically optional,

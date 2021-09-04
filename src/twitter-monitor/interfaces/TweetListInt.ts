@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 export interface TweetListInt {
   data: TweetInt[];
   includes: TweetIncludesInt;
