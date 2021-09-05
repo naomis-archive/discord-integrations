@@ -7,7 +7,7 @@
     "prebuild": "rm -rf ./prod",
     "build": "tsc",
     "postbuild": "cp -r ./src/server/views ./prod/server/views",
-    "lint": "eslint src",
+    "lint": "eslint src --max-warnings 0",
     "start": "node -r dotenv/config ./prod/index.js",
     "test": "echo 'no tests yet'"
   },
