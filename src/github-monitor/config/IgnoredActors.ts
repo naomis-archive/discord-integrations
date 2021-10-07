@@ -7,4 +7,6 @@ export const IgnoredActors = [
   "codeclimate[bot]",
   "dependabot[bot]",
   "lgtm-com[bot]",
+  "deepsource-autofix[bot]",
+  "sonarcloud[bot]",
 ];
