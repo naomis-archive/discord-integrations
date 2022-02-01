@@ -16,7 +16,7 @@ export const sentryDiscordEmbed = (
 ): DiscordEmbedInt | null => {
   try {
     const embed: DiscordEmbedInt = {};
-    embed.title = `Error in ${data.project}`;
+    embed.title = `Naomi had an error in ${data.project}`;
     embed.description = data.message;
     embed.color = 0xff0000;
     embed.url = data.url;

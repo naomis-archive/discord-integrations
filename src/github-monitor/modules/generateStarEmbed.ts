@@ -16,7 +16,7 @@ export const generateStarEmbed = (
 ): DiscordEmbedInt | null => {
   try {
     const embed: DiscordEmbedInt = {
-      title: "A star is born!",
+      title: "Naomi got a star!",
       url: data.repository.html_url,
       color: 0x8b4283,
       description: `The following repository has ${
@@ -33,6 +33,10 @@ export const generateStarEmbed = (
         {
           name: "Repository",
           value: data.repository.name || "unknown",
+        },
+        {
+          name: "Owner",
+          value: data.repository.owner.login || "unknown",
         },
       ],
       footer: {

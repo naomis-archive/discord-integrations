@@ -19,7 +19,7 @@ export const sendTestEmbed = async (
 ): Promise<boolean> => {
   try {
     const embed = {
-      title: "Hello World!",
+      title: `Naomi's ${name} Monitor`,
       description: `This embed confirms that the ${name} webhook is valid!`,
       color: 0x8b4283,
       footer: {

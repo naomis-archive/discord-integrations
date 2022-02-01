@@ -16,7 +16,7 @@ export const generateCommentInt = (
 ): DiscordEmbedInt | null => {
   try {
     const embed: DiscordEmbedInt = {
-      title: "New Comment Activity!",
+      title: "Naomi got a new comment!",
       url: data.comment.html_url,
       color: 0x8b4283,
       description: `A comment was ${data.action}`,

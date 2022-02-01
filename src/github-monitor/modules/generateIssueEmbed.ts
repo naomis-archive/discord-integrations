@@ -20,7 +20,7 @@ export const generateIssuesEmbed = (
       return null;
     }
     const embed: DiscordEmbedInt = {
-      title: "New Issue Activity!",
+      title: "Naomi has received a new issue!",
       url: data.issue.html_url,
       color: 0x8b4283,
       description: `An issue was ${data.action}!`,

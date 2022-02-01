@@ -24,7 +24,7 @@ export const generatePullEmbed = (
       return null;
     }
     const embed: DiscordEmbedInt = {
-      title: "New Pull Request Activity!",
+      title: "Naomi received a pull request!",
       url: data.pull_request.html_url,
       color: 0x8b4283,
       description: `A pull request was ${data.action}`,
