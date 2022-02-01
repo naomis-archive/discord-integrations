@@ -16,7 +16,7 @@ export const generatePingEmbed = (
 ): DiscordEmbedInt | null => {
   try {
     const embed: DiscordEmbedInt = {
-      title: "I am monitoring a new repository!",
+      title: "Naomi has a new project!",
       url: data.repository.html_url,
       color: 0x8b4283,
       description: `I will now watch for activity on the \`${data.repository.name}\` project.`,

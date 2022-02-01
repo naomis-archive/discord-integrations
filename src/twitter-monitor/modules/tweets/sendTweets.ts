@@ -22,7 +22,7 @@ export const sendTweet = async (
         content: `Hey there <@&${CONFIG.twitterNotificationRoleId}>, <@!${CONFIG.ownerId}> did a tweet!`,
         embeds: [
           {
-            title: "nhcarrigan " + tweet.title,
+            title: "Naomi " + tweet.title,
             description: tweet.content,
             fields: [
               {

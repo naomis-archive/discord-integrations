@@ -16,10 +16,10 @@ export const generateForkEmbed = (
 ): DiscordEmbedInt | null => {
   try {
     const embed: DiscordEmbedInt = {
-      title: "New Fork!",
+      title: "Naomi's project has been forked!",
       url: data.forkee.html_url,
       color: 0x8b4283,
-      description: "Woah! A repository was forked!",
+      description: "Woah! I wonder what they'll do with it!",
       author: {
         name: data.sender.login || "unknown",
         // eslint-disable-next-line camelcase
