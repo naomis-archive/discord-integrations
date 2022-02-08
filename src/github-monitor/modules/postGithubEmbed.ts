@@ -21,7 +21,7 @@ export const postGithubEmbed = async (
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        content: `<@&${CONFIG.githubNotificationRoleId}>, there has been some activity on <@!${CONFIG.ownerId}>'s GitHub.`,
+        content: `<@&${CONFIG.githubNotificationRoleId}>, there has been some activity on Naomi's GitHub.`,
         embeds: [embed],
       }),
     });

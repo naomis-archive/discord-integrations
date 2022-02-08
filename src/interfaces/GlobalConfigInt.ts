@@ -7,7 +7,6 @@
 export interface GlobalConfigInt {
   // global values
   sentryDsn: string;
-  ownerId: string;
   globalDiscordWebhook: string;
   environment: "development" | "production";
   // twitter monitor

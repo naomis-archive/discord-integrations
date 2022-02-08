@@ -21,7 +21,7 @@ export const postSentryEmbed = async (
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        content: `<@&${CONFIG.sentryNotificationRoleId}>, one of <@!${CONFIG.ownerId}>'s applications has encountered an error.`,
+        content: `<@&${CONFIG.sentryNotificationRoleId}>, one of Naomi's applications has encountered an error.`,
         embeds: [embed],
       }),
     });

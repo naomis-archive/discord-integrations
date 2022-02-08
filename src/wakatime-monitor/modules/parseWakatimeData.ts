@@ -43,7 +43,7 @@ export const parseWakatimeData = (
 
     const embed: DiscordEmbedInt = {
       title: "Naomi's Coding Activity",
-      description: `On ${yesterday.range.date}, <@!465650873650118659> spent ${yesterday.grand_total.text} writing code!`,
+      description: `On ${yesterday.range.date}, Naomi spent ${yesterday.grand_total.text} writing code!`,
       color: 0x00ff00,
       fields: [
         {

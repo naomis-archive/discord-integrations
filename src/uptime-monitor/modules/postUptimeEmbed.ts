@@ -21,7 +21,7 @@ export const postUptimeEmbed = async (
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        content: `<@&${CONFIG.uptimeNotificationRoleId}>, one of <@!${CONFIG.ownerId}>'s applications has changed status.`,
+        content: `<@&${CONFIG.uptimeNotificationRoleId}>, one of Naomi's applications has changed status.`,
         embeds: [embed],
       }),
     });

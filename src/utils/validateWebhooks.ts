@@ -53,7 +53,7 @@ export const validateWebhooks = async (
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        content: `<@!${CONFIG.ownerId}>, your Monitor application has come online!`,
+        content: `Naomi, your Monitor application has come online!`,
         embeds: [validationEmbed],
       }),
     });

@@ -21,7 +21,7 @@ export const postWakatimeEmbed = async (
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        content: `<@&${CONFIG.wakatimeNotificationRoleId}>, here is <@!${CONFIG.ownerId}>'s latest coding stats update.`,
+        content: `<@&${CONFIG.wakatimeNotificationRoleId}>, here is Naomi's latest coding stats update.`,
         embeds: [embed],
       }),
     });

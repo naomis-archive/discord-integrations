@@ -19,7 +19,7 @@ export const sendTweet = async (
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        content: `Hey there <@&${CONFIG.twitterNotificationRoleId}>, <@!${CONFIG.ownerId}> did a tweet!`,
+        content: `Hey there <@&${CONFIG.twitterNotificationRoleId}>, Naomi did a tweet!`,
         embeds: [
           {
             title: "Naomi " + tweet.title,
