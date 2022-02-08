@@ -42,7 +42,7 @@ export const postErrorMessage = async (
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      content: `<@!${CONFIG.ownerId}>, I seem to have had a monitoring issue.`,
+      content: `Naomi, I seem to have had a monitoring issue.`,
       embeds: [embed],
     }),
   });

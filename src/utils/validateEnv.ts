@@ -73,7 +73,6 @@ export const validateEnv = (): GlobalConfigInt | string => {
 
   const CONFIG: GlobalConfigInt = {
     sentryDsn: process.env.SENTRY_DSN,
-    ownerId: process.env.OWNER_DISCORD_ID,
     globalDiscordWebhook: process.env.GLOBAL_DISCORD_WEBHOOK_URL,
     environment: process.env.NODE_ENV,
     twitterDiscordWebhook: process.env.TWITTER_DISCORD_WEBHOOK_URL,
