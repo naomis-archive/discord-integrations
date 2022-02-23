@@ -24,7 +24,7 @@ export const parseTweet = (
     let refTweet: TweetInt | null = null;
     if (tweet.referenced_tweets?.length) {
       refTweet =
-        includes.tweets.find(
+        includes.tweets?.find(
           (inc) => inc.id === tweet.referenced_tweets?.[0].id
         ) || null;
     }
