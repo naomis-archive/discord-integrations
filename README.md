@@ -4,7 +4,7 @@ This is a collection of various helpful Discord integrations I have written.
 
 ## Live Version
 
-These integrations can be viewed in my [Discord Server](https://chat.nhcarrigan.com).
+These integrations can be viewed in my [Discord Server](https://chat.nhcarrigan.com). Want to [run it yourself?](https://docs.nhcarrigan.com/#/discord-integrations/usage)
 
 ## Integrations
 
@@ -46,4 +46,4 @@ The full license terms may be viewed in the [LICENSE.md file](./LICENSE.md)
 
 ## Contact
 
-We may be contacted through our [Chat Server](http://chat.nhcarrigan.com) or via [email form](https://contact.nhcarrigan.com).
+We may be contacted through our [Chat Server](http://chat.nhcarrigan.com) or via `contact@nhcarrigan.com`.
