@@ -9,19 +9,27 @@ import { errorHandler } from "../../utils/errorHandler";
  *
  * @param {GlobalConfigInt} CONFIG The global config data.
  * @param {DiscordEmbedInt} embed The Discord embed object.
+ * @param {boolean} privateRepo Whether the repo is a private repo or not.
  */
 export const postGithubEmbed = async (
   CONFIG: GlobalConfigInt,
-  embed: DiscordEmbedInt
+  embed: DiscordEmbedInt,
+  privateRepo: boolean
 ): Promise<void> => {
   try {
-    await fetch(CONFIG.githubDiscordWebhook, {
+    const target = privateRepo
+      ? CONFIG.githubPrivateWebhook
+      : CONFIG.githubDiscordWebhook;
+    const message = privateRepo
+      ? "There has been some activity on one of Naomi's private repos."
+      : `<@&${CONFIG.githubNotificationRoleId}>, there has been some activity on Naomi's GitHub.`;
+    await fetch(target, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        content: `<@&${CONFIG.githubNotificationRoleId}>, there has been some activity on Naomi's GitHub.`,
+        content: message,
         embeds: [embed],
       }),
     });

@@ -67,6 +67,9 @@ export const validateEnv = (): GlobalConfigInt | string => {
   if (!process.env.GITHUB_DISCORD_WEBHOOK_URL) {
     return "Missing the Discord webhook URL for GitHub notifications.";
   }
+  if (!process.env.GITHUB_PRIVATE_WEBHOOK_URL) {
+    return "Missing the private GitHub Webhook URL";
+  }
   if (!process.env.GITHUB_NOTIFICATION_ROLE) {
     return "Missing the ID for your GitHub notifications role.";
   }
@@ -92,6 +95,7 @@ export const validateEnv = (): GlobalConfigInt | string => {
     githubSecret: process.env.GITHUB_SECRET,
     githubDiscordWebhook: process.env.GITHUB_DISCORD_WEBHOOK_URL,
     githubNotificationRoleId: process.env.GITHUB_NOTIFICATION_ROLE,
+    githubPrivateWebhook: process.env.GITHUB_PRIVATE_WEBHOOK_URL,
   };
 
   return CONFIG;

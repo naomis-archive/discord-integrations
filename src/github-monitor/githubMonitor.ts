@@ -82,10 +82,10 @@ export const githubMonitor = async (
       return;
     }
 
-    await postGithubEmbed(CONFIG, embed);
+    await postGithubEmbed(CONFIG, embed, req.body.repository?.private);
 
     res.status(200).send("Event received and logged!");
   } catch (err) {
-    errorHandler(CONFIG, "sentry monitor", err);
+    errorHandler(CONFIG, "github monitor", err);
   }
 };
