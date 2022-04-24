@@ -38,7 +38,12 @@ export const validateWebhooks = async (
         "UptimeRobot"
       )) &&
       (await sendTestEmbed(CONFIG, CONFIG.sentryDiscordWebhook, "Sentry")) &&
-      (await sendTestEmbed(CONFIG, CONFIG.githubDiscordWebhook, "Github"));
+      (await sendTestEmbed(CONFIG, CONFIG.githubDiscordWebhook, "Github")) &&
+      (await sendTestEmbed(
+        CONFIG,
+        CONFIG.githubPrivateWebhook,
+        "Private Github"
+      ));
 
     if (!allHooksValid) {
       validationEmbed.title = "One or more webhooks did not initialise.";

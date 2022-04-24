@@ -30,5 +30,6 @@ export interface GlobalConfigInt {
   // github monitor
   githubSecret: string;
   githubDiscordWebhook: string;
+  githubPrivateWebhook: string;
   githubNotificationRoleId: string;
 }
