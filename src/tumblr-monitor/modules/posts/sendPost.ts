@@ -16,10 +16,13 @@ export const sendPost = async (CONFIG: GlobalConfigInt, post: PostData) => {
   try {
     const embed: DiscordEmbedInt = {};
     embed.title = post.title || "Untitled Post";
-    embed.description = customSubstring(post.body, 2000);
+    embed.description = customSubstring(
+      post.body || post.caption || "No body",
+      2000
+    );
     embed.url = post.post_url;
     embed.footer = {
-      text: post.tags.length
+      text: post.tags?.length
         ? customSubstring(post.tags.map((el) => `#${el}`).join(", "), 2000)
         : "none",
     };

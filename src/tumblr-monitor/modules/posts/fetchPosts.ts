@@ -23,7 +23,12 @@ export const fetchPosts = async (
     req.searchParams.set("api_key", CONFIG.tumblrApiKey);
     req.searchParams.set("filter", "text");
 
-    const raw = await fetch(req.toString());
+    const raw = await fetch(req.toString(), {
+      method: "GET",
+      headers: {
+        "User-Agent": "Naomi's Discord Integrations",
+      },
+    });
 
     const data = (await raw.json()) as TumblrPosts;
     return data;

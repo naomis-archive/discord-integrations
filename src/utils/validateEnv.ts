@@ -10,9 +10,6 @@ export const validateEnv = (): GlobalConfigInt | string => {
   if (!process.env.SENTRY_DSN) {
     return "Missing Sentry DSN.";
   }
-  if (!process.env.OWNER_DISCORD_ID) {
-    return "Missing Owner's Discord ID.";
-  }
   if (!process.env.GLOBAL_DISCORD_WEBHOOK_URL) {
     return "Missing Global Webhook URL.";
   }

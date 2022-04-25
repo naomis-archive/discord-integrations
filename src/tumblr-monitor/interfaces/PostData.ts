@@ -27,4 +27,5 @@ export interface PostData {
   };
   image_permalink?: string;
   photos?: PostPhoto[];
+  caption?: string;
 }

@@ -39,7 +39,7 @@ export const monitorPosts = async (CONFIG: GlobalConfigInt) => {
       (post) => post.id_string === CONFIG.lastTumblr
     );
 
-    const toPost = posts.slice(0, lastPosted);
+    const toPost = lastPosted === -1 ? posts : posts.slice(0, lastPosted);
 
     for (const post of toPost) {
       CONFIG.lastTumblr = post.id_string;
