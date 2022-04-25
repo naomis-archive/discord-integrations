@@ -2,6 +2,7 @@ import { RewriteFrames } from "@sentry/integrations";
 import * as Sentry from "@sentry/node";
 
 import { server } from "./server/server";
+import { tumblrMonitor } from "./tumblr-monitor/tumblrMonitor";
 import { twitterMonitor } from "./twitter-monitor/twitterMonitor";
 import { logHandler } from "./utils/logHandler";
 import { validateEnv } from "./utils/validateEnv";
@@ -42,6 +43,9 @@ const initialise = async () => {
 
   logHandler.log("debug", "Loading Wakatime monitor");
   wakatimeMonitor(CONFIG);
+
+  logHandler.log("debug", "Loading Tumblr montior.");
+  await tumblrMonitor(CONFIG);
 };
 
 initialise();

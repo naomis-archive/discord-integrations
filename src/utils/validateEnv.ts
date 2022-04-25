@@ -10,9 +10,6 @@ export const validateEnv = (): GlobalConfigInt | string => {
   if (!process.env.SENTRY_DSN) {
     return "Missing Sentry DSN.";
   }
-  if (!process.env.OWNER_DISCORD_ID) {
-    return "Missing Owner's Discord ID.";
-  }
   if (!process.env.GLOBAL_DISCORD_WEBHOOK_URL) {
     return "Missing Global Webhook URL.";
   }
@@ -73,6 +70,15 @@ export const validateEnv = (): GlobalConfigInt | string => {
   if (!process.env.GITHUB_NOTIFICATION_ROLE) {
     return "Missing the ID for your GitHub notifications role.";
   }
+  if (!process.env.TUMBLR_API_KEY) {
+    return "Missing the Tumblr API key.";
+  }
+  if (!process.env.TUMBLR_DISCORD_WEBHOOK_URL) {
+    return "Missing the Discord webhook URL for Tumblr notifications";
+  }
+  if (!process.env.TUMBLR_NOTIFICATION_ROLE) {
+    return "Missing the ID for your Tumblr notifications role.";
+  }
 
   const CONFIG: GlobalConfigInt = {
     sentryDsn: process.env.SENTRY_DSN,
@@ -96,6 +102,10 @@ export const validateEnv = (): GlobalConfigInt | string => {
     githubDiscordWebhook: process.env.GITHUB_DISCORD_WEBHOOK_URL,
     githubNotificationRoleId: process.env.GITHUB_NOTIFICATION_ROLE,
     githubPrivateWebhook: process.env.GITHUB_PRIVATE_WEBHOOK_URL,
+    tumblrApiKey: process.env.TUMBLR_API_KEY,
+    tumblrDiscordWebhook: process.env.TUMBLR_DISCORD_WEBHOOK_URL,
+    tumblrNotificationRoleId: process.env.TUMBLR_NOTIFICATION_ROLE,
+    lastTumblr: "",
   };
 
   return CONFIG;
