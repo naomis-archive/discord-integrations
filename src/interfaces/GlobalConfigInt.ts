@@ -32,4 +32,9 @@ export interface GlobalConfigInt {
   githubDiscordWebhook: string;
   githubPrivateWebhook: string;
   githubNotificationRoleId: string;
+  // tumblr monitor
+  tumblrApiKey: string;
+  tumblrDiscordWebhook: string;
+  tumblrNotificationRoleId: string;
+  lastTumblr: string;
 }
