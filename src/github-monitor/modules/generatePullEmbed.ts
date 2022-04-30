@@ -2,6 +2,7 @@ import { DiscordEmbedInt } from "../../interfaces/DiscordEmbedInt";
 import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
 import { customSubstring } from "../../utils/customSubstring";
 import { errorHandler } from "../../utils/errorHandler";
+import { updateCache } from "../../utils/updateCache";
 import { IgnoredActors } from "../config/IgnoredActors";
 import { GithubPullInt } from "../interfaces/GithubPullInt";
 
@@ -56,6 +57,13 @@ export const generatePullEmbed = (
 
     if (data.pull_request.merged) {
       embed.description = `A pull request was merged!`;
+    }
+    if (data.sender.login === "nhcarrigan") {
+      updateCache(CONFIG, {
+        title: "Naomi worked on code",
+        description: `She looked at pull #${data.pull_request.number} on ${data.repository.name}`,
+        timestamp: Date.now(),
+      });
     }
     return embed;
   } catch (err) {

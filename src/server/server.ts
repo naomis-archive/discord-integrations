@@ -3,6 +3,7 @@ import http from "http";
 import https from "https";
 import path from "path";
 
+import cors from "cors";
 import express from "express";
 
 import { githubMonitor } from "../github-monitor/githubMonitor";
@@ -18,6 +19,24 @@ import { logHandler } from "../utils/logHandler";
  */
 export const server = async (CONFIG: GlobalConfigInt): Promise<void> => {
   const app = express();
+
+  const allowedOrigins = [
+    "https://www.nhcarrigan.com",
+    "https://nhcarrigan.com",
+    "http://localhost:4200",
+  ];
+
+  app.use(
+    cors({
+      origin: (origin, callback) => {
+        if (!origin || !allowedOrigins.includes(origin)) {
+          callback(null, true);
+        } else {
+          callback(new Error("Not allowed by CORS"));
+        }
+      },
+    })
+  );
 
   app.use(express.json());
 
@@ -41,6 +60,11 @@ export const server = async (CONFIG: GlobalConfigInt): Promise<void> => {
     "/github",
     async (req, res) => await githubMonitor(CONFIG, req, res)
   );
+
+  // activity endpoint
+  app.get("/activity", (req, res) => {
+    res.json(CONFIG.activityCache);
+  });
 
   // root url
   app.use("/", (req, res) => {

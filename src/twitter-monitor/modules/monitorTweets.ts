@@ -1,6 +1,7 @@
 import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
 import { errorHandler } from "../../utils/errorHandler";
 import { logHandler } from "../../utils/logHandler";
+import { updateCache } from "../../utils/updateCache";
 
 import { fetchTweets } from "./tweets/fetchTweets";
 import { parseTweet } from "./tweets/parseTweets";
@@ -52,6 +53,12 @@ export const monitorTweets = async (CONFIG: GlobalConfigInt): Promise<void> => {
         logHandler.log("debug", `could not parse tweet ${tweet.id}`);
         continue;
       }
+
+      updateCache(CONFIG, {
+        title: "Naomi was on Twitter!",
+        description: parsed.content,
+        timestamp: Date.now(),
+      });
 
       logHandler.log("debug", `Sending tweet ${tweet.id}`);
       await sendTweet(CONFIG, parsed);

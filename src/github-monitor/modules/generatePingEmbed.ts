@@ -1,6 +1,7 @@
 import { DiscordEmbedInt } from "../../interfaces/DiscordEmbedInt";
 import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
 import { errorHandler } from "../../utils/errorHandler";
+import { updateCache } from "../../utils/updateCache";
 import { GithubPingInt } from "../interfaces/GithubPingInt";
 
 /**
@@ -41,6 +42,11 @@ export const generatePingEmbed = (
         text: data.zen,
       },
     };
+    updateCache(CONFIG, {
+      title: "Naomi Created a Project",
+      description: `She is starting work on the ${data.repository.owner.login}/${data.repository.name} repo.`,
+      timestamp: Date.now(),
+    });
     return embed;
   } catch (err) {
     errorHandler(CONFIG, "ping embed generator", err);

@@ -1,11 +1,13 @@
+import { ActivityCache } from "./ActivityCache";
+
 /**
  * This is the structure of the global configuration object.
  * That object is used to pass around the environment variables,
  * to avoid having to coerce types.
  */
-
 export interface GlobalConfigInt {
   // global values
+  activityCache: ActivityCache[];
   sentryDsn: string;
   globalDiscordWebhook: string;
   environment: "development" | "production";

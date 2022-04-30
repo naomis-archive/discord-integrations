@@ -2,6 +2,7 @@ import { DiscordEmbedInt } from "../../interfaces/DiscordEmbedInt";
 import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
 import { customSubstring } from "../../utils/customSubstring";
 import { errorHandler } from "../../utils/errorHandler";
+import { updateCache } from "../../utils/updateCache";
 import { GithubIssuesInt } from "../interfaces/GithubIssuesInt";
 
 /**
@@ -49,6 +50,13 @@ export const generateIssuesEmbed = (
         text: `Issue number ${data.issue.number}`,
       },
     };
+    if (data.sender.login === "nhcarrigan") {
+      updateCache(CONFIG, {
+        title: "Naomi looked at an issue",
+        description: `She looked at pull #${data.issue.number} on ${data.repository.name}`,
+        timestamp: Date.now(),
+      });
+    }
     return embed;
   } catch (err) {
     errorHandler(CONFIG, "issue embed generator", err);
