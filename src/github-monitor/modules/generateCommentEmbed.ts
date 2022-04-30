@@ -1,6 +1,7 @@
 import { DiscordEmbedInt } from "../../interfaces/DiscordEmbedInt";
 import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
 import { errorHandler } from "../../utils/errorHandler";
+import { updateCache } from "../../utils/updateCache";
 import { GithubCommentInt } from "../interfaces/GithubCommentInt";
 
 /**
@@ -41,6 +42,13 @@ export const generateCommentInt = (
         text: `Issue number ${data.issue.number}`,
       },
     };
+    if (data.sender.login === "nhcarrigan") {
+      updateCache(CONFIG, {
+        title: "Naomi made a comment",
+        description: data.comment.body,
+        timestamp: Date.now(),
+      });
+    }
     return embed;
   } catch (err) {
     errorHandler(CONFIG, "generate comment embed", err);

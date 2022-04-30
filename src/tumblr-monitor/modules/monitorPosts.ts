@@ -1,6 +1,7 @@
 import { GlobalConfigInt } from "../../interfaces/GlobalConfigInt";
 import { errorHandler } from "../../utils/errorHandler";
 import { logHandler } from "../../utils/logHandler";
+import { updateCache } from "../../utils/updateCache";
 
 import { fetchPosts } from "./posts/fetchPosts";
 import { sendPost } from "./posts/sendPost";
@@ -45,6 +46,13 @@ export const monitorPosts = async (CONFIG: GlobalConfigInt) => {
       CONFIG.lastTumblr = post.id_string;
 
       logHandler.log("debug", `Sending post with ID of ${post.id_string}`);
+
+      updateCache(CONFIG, {
+        title: "Naomi was on Tumblr!",
+        description:
+          post.body || post.caption || "But we don't know what she said.",
+        timestamp: post.timestamp,
+      });
 
       await sendPost(CONFIG, post);
     }

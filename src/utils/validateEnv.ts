@@ -81,6 +81,7 @@ export const validateEnv = (): GlobalConfigInt | string => {
   }
 
   const CONFIG: GlobalConfigInt = {
+    activityCache: [],
     sentryDsn: process.env.SENTRY_DSN,
     globalDiscordWebhook: process.env.GLOBAL_DISCORD_WEBHOOK_URL,
     environment: process.env.NODE_ENV,
