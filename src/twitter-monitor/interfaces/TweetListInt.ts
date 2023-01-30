@@ -7,6 +7,7 @@ export interface TweetListInt {
 export interface TweetIncludesInt {
   users: TweetUserInt[];
   tweets: TweetInt[];
+  media: TweetMediaInt[];
 }
 
 export interface TweetInt {
@@ -15,6 +16,9 @@ export interface TweetInt {
     type: string;
     id: string;
   }[];
+  attachments: {
+    media_keys: string[];
+  };
   created_at: string;
   text: string;
   author_id: string;
@@ -25,4 +29,11 @@ export interface TweetUserInt {
   username: string;
   profile_image_url: string;
   name: string;
+}
+
+export interface TweetMediaInt {
+  media_key: string;
+  preview_image_url?: string;
+  type: string;
+  url?: string;
 }

@@ -3,7 +3,7 @@ import * as Sentry from "@sentry/node";
 
 import { server } from "./server/server";
 import { tumblrMonitor } from "./tumblr-monitor/tumblrMonitor";
-// import { twitterMonitor } from "./twitter-monitor/twitterMonitor";
+import { twitterMonitor } from "./twitter-monitor/twitterMonitor";
 import { logHandler } from "./utils/logHandler";
 import { validateEnv } from "./utils/validateEnv";
 import { validateWebhooks } from "./utils/validateWebhooks";
@@ -38,8 +38,8 @@ const initialise = async () => {
   logHandler.log("debug", "Spinning up webserver");
   await server(CONFIG);
 
-  // logHandler.log("debug", "Loading twitter monitor.");
-  // await twitterMonitor(CONFIG);
+  logHandler.log("debug", "Loading twitter monitor.");
+  await twitterMonitor(CONFIG);
 
   // logHandler.log("debug", "Loading Wakatime monitor");
   // wakatimeMonitor(CONFIG);
