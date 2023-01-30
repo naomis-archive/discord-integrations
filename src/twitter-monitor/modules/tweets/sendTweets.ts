@@ -37,7 +37,7 @@ export const sendTweet = async (
 
     const imageEmbeds: APIEmbed[] = [];
 
-    if (tweet.images.length) {
+    if (tweet.images?.length) {
       firstEmbed.image = {
         url: tweet.images[0],
       };

@@ -7,7 +7,7 @@ export interface TweetListInt {
 export interface TweetIncludesInt {
   users: TweetUserInt[];
   tweets: TweetInt[];
-  media: TweetMediaInt[];
+  media?: TweetMediaInt[];
 }
 
 export interface TweetInt {
