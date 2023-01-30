@@ -59,7 +59,7 @@ export const parseTweet = (
       .filter(
         (img) =>
           (img.preview_image_url || img.url) &&
-          tweet.attachments.media_keys.includes(img.media_key)
+          tweet.attachments?.media_keys.includes(img.media_key)
       )
       .map((el) => el.preview_image_url || el.url || "");
 
@@ -69,10 +69,10 @@ export const parseTweet = (
       links,
       username: author?.username || "no user found",
       avatar:
-        author?.profile_image_url ||
-        "https://cdn.nhcarrigan.com/content/profile.jpg",
-      profile: `https://twitter.com/${author?.username || "nhcarrigan"}`,
+        author?.profile_image_url || "https://cdn.nhcarrigan.com/profile.png",
+      profile: `https://twitter.com/${author?.username || "naomi_lgbt"}`,
       images: filteredImages,
+      tweetUrl: `https://twitter.com/${author?.username}/status/${tweet.id}`,
     };
   } catch (err) {
     errorHandler(CONFIG, "tweet parser", err);

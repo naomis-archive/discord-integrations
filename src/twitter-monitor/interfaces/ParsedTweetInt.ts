@@ -6,4 +6,5 @@ export interface ParsedTweetInt {
   avatar: string;
   profile: string;
   images: string[];
+  tweetUrl: string;
 }
