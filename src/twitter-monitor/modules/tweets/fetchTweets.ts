@@ -36,7 +36,12 @@ export const fetchTweets = async (
         "author_id",
         "referenced_tweets.id",
         "referenced_tweets.id.author_id",
+        "attachments.media_keys",
       ].join(",")
+    );
+    req.searchParams.set(
+      "media.fields",
+      ["preview_image_url", "url"].join(",")
     );
     if (CONFIG.lastTweet) {
       req.searchParams.set("since_id", CONFIG.lastTweet);

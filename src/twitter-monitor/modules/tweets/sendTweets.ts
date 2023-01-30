@@ -37,6 +37,9 @@ export const sendTweet = async (
               icon_url: tweet.avatar,
               url: tweet.profile,
             },
+            image: tweet.images.map((url) => {
+              url;
+            }),
           },
         ],
       }),

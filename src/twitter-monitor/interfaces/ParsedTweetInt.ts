@@ -5,4 +5,5 @@ export interface ParsedTweetInt {
   username: string;
   avatar: string;
   profile: string;
+  images: string[];
 }

@@ -55,6 +55,14 @@ export const parseTweet = (
         break;
     }
 
+    const filteredImages = includes.media
+      .filter(
+        (img) =>
+          (img.preview_image_url || img.url) &&
+          tweet.attachments.media_keys.includes(img.media_key)
+      )
+      .map((el) => el.preview_image_url || el.url || "");
+
     return {
       title,
       content,
@@ -64,6 +72,7 @@ export const parseTweet = (
         author?.profile_image_url ||
         "https://cdn.nhcarrigan.com/content/profile.jpg",
       profile: `https://twitter.com/${author?.username || "nhcarrigan"}`,
+      images: filteredImages,
     };
   } catch (err) {
     errorHandler(CONFIG, "tweet parser", err);
