@@ -56,12 +56,12 @@ export const parseTweet = (
     }
 
     const filteredImages = includes.media
-      .filter(
+      ?.filter(
         (img) =>
           (img.preview_image_url || img.url) &&
           tweet.attachments?.media_keys.includes(img.media_key)
       )
-      .map((el) => el.preview_image_url || el.url || "");
+      ?.map((el) => el.preview_image_url || el.url || "");
 
     return {
       title,
