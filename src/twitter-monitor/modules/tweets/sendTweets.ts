@@ -1,5 +1,4 @@
 import { APIEmbed } from "discord-api-types/v10";
-import fetch from "node-fetch";
 
 import { GlobalConfigInt } from "../../../interfaces/GlobalConfigInt";
 import { errorHandler } from "../../../utils/errorHandler";
