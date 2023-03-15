@@ -1,5 +1,3 @@
-import fetch from "node-fetch";
-
 import { GlobalConfigInt } from "../../../interfaces/GlobalConfigInt";
 import { errorHandler } from "../../../utils/errorHandler";
 import { TumblrPosts } from "../../interfaces/TumblrPosts";
