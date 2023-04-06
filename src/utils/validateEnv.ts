@@ -79,6 +79,21 @@ export const validateEnv = (): GlobalConfigInt | string => {
   if (!process.env.TUMBLR_NOTIFICATION_ROLE) {
     return "Missing the ID for your Tumblr notifications role.";
   }
+  if (
+    !process.env.MASTODON_NAOMI ||
+    !process.env.MASTODON_BECCA ||
+    !process.env.MASTODON_ROSALIA ||
+    !process.env.MASTODON_BECCALIA ||
+    !process.env.MASTODON_NHCARRIGAN
+  ) {
+    return "Missing the IDs for Mastodon accounts.";
+  }
+  if (!process.env.MASTODON_DISCORD_WEBHOOK_URL) {
+    return "Missing the Discord webhook URL for Mastodon notifications.";
+  }
+  if (!process.env.MASTODON_NOTIFICATION_ROLE) {
+    return "Missing the ID for your Mastodon notifications role.";
+  }
 
   const CONFIG: GlobalConfigInt = {
     activityCache: [],
@@ -107,6 +122,22 @@ export const validateEnv = (): GlobalConfigInt | string => {
     tumblrDiscordWebhook: process.env.TUMBLR_DISCORD_WEBHOOK_URL,
     tumblrNotificationRoleId: process.env.TUMBLR_NOTIFICATION_ROLE,
     lastTumblr: "",
+    mastodonIds: {
+      naomi: process.env.MASTODON_NAOMI,
+      becca: process.env.MASTODON_BECCA,
+      rosalia: process.env.MASTODON_ROSALIA,
+      beccalia: process.env.MASTODON_BECCALIA,
+      nhcarrigan: process.env.MASTODON_NHCARRIGAN,
+    },
+    lastMastodon: {
+      naomi: "",
+      becca: "",
+      rosalia: "",
+      beccalia: "",
+      nhcarrigan: "",
+    },
+    mastodonDiscordWebhook: process.env.MASTODON_DISCORD_WEBHOOK_URL,
+    mastodonNotificationRoleId: process.env.MASTODON_NOTIFICATION_ROLE,
   };
 
   return CONFIG;

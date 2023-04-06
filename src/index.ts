@@ -1,6 +1,7 @@
 import { RewriteFrames } from "@sentry/integrations";
 import * as Sentry from "@sentry/node";
 
+import { mastodonMonitor } from "./mastodon-monitor/mastodonMonitor";
 import { server } from "./server/server";
 import { tumblrMonitor } from "./tumblr-monitor/tumblrMonitor";
 import { twitterMonitor } from "./twitter-monitor/twitterMonitor";
@@ -44,8 +45,11 @@ const initialise = async () => {
   // logHandler.log("debug", "Loading Wakatime monitor");
   // wakatimeMonitor(CONFIG);
 
-  logHandler.log("debug", "Loading Tumblr montior.");
+  logHandler.log("debug", "Loading Tumblr monitor.");
   await tumblrMonitor(CONFIG);
+
+  logHandler.log("debug", "Loading Mastodon monitor.");
+  await mastodonMonitor(CONFIG);
 };
 
 initialise();
