@@ -30,22 +30,22 @@ export const monitorToots = async (CONFIG: GlobalConfigInt): Promise<void> => {
         | "nhcarrigan";
       const data = await fetchToots(CONFIG, user);
       if (!data) {
-        logHandler.log("error", "toots not collected.");
-        return;
+        logHandler.log("error", `toots for ${user} not collected.`);
+        continue;
       }
 
       if (!data.length) {
-        logHandler.log("debug", "No new toots yet.");
-        return;
+        logHandler.log("debug", `No new toots for ${user} yet.`);
+        continue;
       }
 
       if (!CONFIG.lastMastodon[user]) {
         logHandler.log(
           "debug",
-          "This appears to be the first run. No toots will be processed this time."
+          `This appears to be the first run. No toots for ${user} will be processed this time.`
         );
         CONFIG.lastMastodon[user] = data[0].id;
-        return;
+        continue;
       }
 
       for (const toot of data) {
