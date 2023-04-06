@@ -29,7 +29,7 @@
   "homepage": "https://github.com/nhcarrigan/discord-integrations#readme",
   "engines": {
     "node": "18.15.0",
-    "npm": "9.6.3"
+    "npm": "9.6.4"
   },
   "devDependencies": {
     "@types/cors": "2.8.13",
