@@ -39,4 +39,21 @@ export interface GlobalConfigInt {
   tumblrDiscordWebhook: string;
   tumblrNotificationRoleId: string;
   lastTumblr: string;
+  // mastodon monitor
+  mastodonIds: {
+    naomi: string;
+    becca: string;
+    rosalia: string;
+    beccalia: string;
+    nhcarrigan: string;
+  };
+  lastMastodon: {
+    naomi: string;
+    becca: string;
+    rosalia: string;
+    beccalia: string;
+    nhcarrigan: string;
+  };
+  mastodonDiscordWebhook: string;
+  mastodonNotificationRoleId: string;
 }

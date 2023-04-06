@@ -42,7 +42,8 @@ export const validateWebhooks = async (
         CONFIG.githubPrivateWebhook,
         "Private Github"
       )) &&
-      (await sendTestEmbed(CONFIG, CONFIG.tumblrDiscordWebhook, "Tumblr"));
+      (await sendTestEmbed(CONFIG, CONFIG.tumblrDiscordWebhook, "Tumblr")) &&
+      (await sendTestEmbed(CONFIG, CONFIG.mastodonDiscordWebhook, "Mastodon"));
 
     if (!allHooksValid) {
       validationEmbed.title = "One or more webhooks did not initialise.";
