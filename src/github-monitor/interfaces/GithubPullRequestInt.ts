@@ -5,7 +5,6 @@ import { GithubUserInt } from "./GithubUserInt";
  * GitHub Webhook.
  */
 export interface GithubPullRequestInt {
-  // eslint-disable-next-line camelcase
   html_url: string;
   body: string;
   number: number;

@@ -57,7 +57,6 @@ export const parseWakatimeData = (
       ],
       author: {
         name: "nhcarrigan",
-        // eslint-disable-next-line camelcase
         icon_url: "https://cdn.nhcarrigan.com/content/profile.jpg",
       },
       footer: {

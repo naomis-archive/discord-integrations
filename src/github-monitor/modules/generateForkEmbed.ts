@@ -22,7 +22,6 @@ export const generateForkEmbed = (
       description: "Woah! I wonder what they'll do with it!",
       author: {
         name: data.sender.login || "unknown",
-        // eslint-disable-next-line camelcase
         icon_url:
           data.sender.avatar_url ||
           "https://cdn.nhcarrigan.com/content/profile.jpg",

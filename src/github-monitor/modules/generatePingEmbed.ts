@@ -23,7 +23,6 @@ export const generatePingEmbed = (
       description: `I will now watch for activity on the \`${data.repository.name}\` project.`,
       author: {
         name: data.sender.login || "unknown",
-        // eslint-disable-next-line camelcase
         icon_url:
           data.sender.avatar_url ||
           "https://cdn.nhcarrigan.com/content/profile.jpg",

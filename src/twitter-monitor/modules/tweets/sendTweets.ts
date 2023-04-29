@@ -27,7 +27,6 @@ export const sendTweet = async (
       color: 0x3a3240,
       author: {
         name: tweet.username,
-        // eslint-disable-next-line camelcase
         icon_url: tweet.avatar,
         url: tweet.profile,
       },

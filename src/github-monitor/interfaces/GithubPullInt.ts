@@ -8,7 +8,6 @@ import { GithubUserInt } from "./GithubUserInt";
 export interface GithubPullInt {
   action: string;
   number: number;
-  // eslint-disable-next-line camelcase
   pull_request: GithubPullRequestInt;
   repository: GithubRepoInt;
   sender: GithubUserInt;

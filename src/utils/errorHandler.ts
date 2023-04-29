@@ -1,4 +1,3 @@
-/* eslint-disable jsdoc/no-undefined-types */
 import * as Sentry from "@sentry/node";
 
 import { GlobalConfigInt } from "../interfaces/GlobalConfigInt";
