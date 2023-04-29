@@ -7,7 +7,6 @@ import { GithubUserInt } from "./GithubUserInt";
  */
 export interface GithubPingInt {
   zen: string;
-  // eslint-disable-next-line camelcase
   hook_id: string;
   hook: Record<string, unknown>;
   repository: GithubRepoInt;

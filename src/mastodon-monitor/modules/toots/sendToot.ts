@@ -29,7 +29,6 @@ export const sendToot = async (
       color: 0x3a3240,
       author: {
         name: toot.username,
-        // eslint-disable-next-line camelcase
         icon_url: toot.avatar,
         url: toot.profile,
       },
