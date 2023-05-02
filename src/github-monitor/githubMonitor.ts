@@ -14,6 +14,7 @@ import { generatePingEmbed } from "./modules/generatePingEmbed";
 import { generatePullEmbed } from "./modules/generatePullEmbed";
 import { generateStarEmbed } from "./modules/generateStarEmbed";
 import { postGithubEmbed } from "./modules/postGithubEmbed";
+import { sendCloseMessage } from "./modules/sendCloseMessage";
 
 /**
  * This function handles requests to the `/github` endpoint.
@@ -74,6 +75,17 @@ export const githubMonitor = async (
       default:
         logHandler.log("info", "But it was not a supported Github event...");
         logHandler.log("info", headers["x-github-event"]);
+    }
+
+    if (
+      headers["x-github-event"] === "pull_request" &&
+      req.body.action === "closed" &&
+      req.body.pull_request.merged
+    ) {
+      const isFirstTimer =
+        req.body.author_association === "FIRST_TIMER" ||
+        req.body.author_association === "FIRST_TIME_CONTRIBUTOR";
+      await sendCloseMessage(CONFIG, req.body, isFirstTimer);
     }
 
     if (!embed) {

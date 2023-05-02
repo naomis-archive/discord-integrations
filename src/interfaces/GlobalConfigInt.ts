@@ -31,6 +31,7 @@ export interface GlobalConfigInt {
   sentryNotificationRoleId: string;
   // github monitor
   githubSecret: string;
+  githubToken: string;
   githubDiscordWebhook: string;
   githubPrivateWebhook: string;
   githubNotificationRoleId: string;

@@ -61,6 +61,9 @@ export const validateEnv = (): GlobalConfigInt | string => {
   if (!process.env.GITHUB_SECRET) {
     return "Missing secret parameter for GitHub endpoint.";
   }
+  if (!process.env.GITHUB_TOKEN) {
+    return "Missing the GitHub API token.";
+  }
   if (!process.env.GITHUB_DISCORD_WEBHOOK_URL) {
     return "Missing the Discord webhook URL for GitHub notifications.";
   }
@@ -115,6 +118,7 @@ export const validateEnv = (): GlobalConfigInt | string => {
     sentryDiscordWebhook: process.env.SENTRY_DISCORD_WEBHOOK_URL,
     sentryNotificationRoleId: process.env.SENTRY_NOTIFICATION_ROLE,
     githubSecret: process.env.GITHUB_SECRET,
+    githubToken: process.env.GITHUB_TOKEN,
     githubDiscordWebhook: process.env.GITHUB_DISCORD_WEBHOOK_URL,
     githubNotificationRoleId: process.env.GITHUB_NOTIFICATION_ROLE,
     githubPrivateWebhook: process.env.GITHUB_PRIVATE_WEBHOOK_URL,
