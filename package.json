@@ -37,7 +37,7 @@
     "@nhcarrigan/typescript-config": "1.0.1",
     "@types/cors": "2.8.13",
     "@types/express": "4.17.17",
-    "@types/node": "18.16.18",
+    "@types/node": "18.16.19",
     "discord-api-types": "0.37.47",
     "eslint": "8.43.0",
     "prettier": "2.8.8",
